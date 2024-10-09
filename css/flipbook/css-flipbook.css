@@ -11,14 +11,25 @@ body {
 }
 
 #flipbook {
-    margin-top: -20px;
-    width: 1000px;
+    margin-top: -40px;
+    width: 80%;
     height: 600px;
-    left: 50px;
-    margin: auto;
+
 }
 
-#flipbook a {
+#flipbook .page {
+    width: 80%;
+    height: 600px;
+}
+
+
+#flipbook img {
+    height: 600px;
+    width: 100%;
+    max-width: 520px;
+}
+
+/* #flipbook a {
     font-family: "Work Sans", Arial, sans-serif;
     color: black;
     text-decoration: none;
@@ -26,8 +37,7 @@ body {
 }
 
 #flipbook img {
-    margin: 25%;
-    width: 50%;
+    margin: 50%;
 }
 
 #flipbook a:hover {
@@ -39,7 +49,7 @@ body {
     font-family: "Work Sans", Arial, sans-serif;
     padding: 0px 20px;
     color: white;
-    margin-top: 10  0px;
+    margin-top: 10 0px;
     margin-bottom: -40px;
     text-align: center;
 }
@@ -48,21 +58,6 @@ body {
     padding: 0px 20px;
     text-align: center;
 }
-
-/* 
-#flipbook h1,
-#flipbook .hard p,
-#flipbook .p2 h2 {
-    font-family: "Work Sans", Arial, sans-serif;
-    color: white;
-    bottom: 90px;
-} */
-
-/* #flipbook h2,
-#flipbook h3,
-#flipbook h4 {
-    padding: 0px 20px
-} */
 
 #flipbook .w3-panel {
     margin-top: 10px;
@@ -75,11 +70,6 @@ body {
     box-shadow: 10px 4px 10px #85929e;
 }
 
-#flipbook .page {
-    width: 400px;
-    height: 600px;
-    background: #0077B3;
-}
 
 #flipbook .hard {
     background-image: url("cover-unsplash.jpg");
@@ -102,7 +92,7 @@ body {
 }
 
 #flipbook .pageNum {
-    left: 50%;
+    left: 25%;
 }
 
 #flipbook .content-list {
@@ -139,19 +129,11 @@ body {
     color: #0077B3;
     padding: 0 5px
 }
-
-@media (max-width: 500px) {
+ */
+@media screen {
     #flipbook {
         margin-top: 0;
-        width: 400px;
-        left: 10px;
-    }
-
-    #flipbook p {
-        font-size: 13px;
-    }
-
-    #flipbook img {
-        margin: 28%;
+        width: 90%;
+        margin-left: 20px;
     }
 }
