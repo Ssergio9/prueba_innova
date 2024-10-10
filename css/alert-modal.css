@@ -1,0 +1,29 @@
+.carousel {
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+    /* Ancho completo del contenedor */
+}
+
+.carousel-inner {
+    display: flex;
+    transition: transform 0.5s ease;
+    width: calc(100% * 4);
+    /* Total de 4 imágenes */
+}
+
+.carousel img {
+    width: 300px;
+    /* Ancho de las imágenes */
+    height: 300px;
+    /* Alto de las imágenes */
+    border-radius: 5px;
+    /* Esquinas redondeadas */
+}
+
+.text-green {
+    color: green;
+    /* Color verde para el texto */
+    text-align: center;
+    /* Centra el texto */
+}

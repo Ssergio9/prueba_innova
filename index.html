@@ -61,11 +61,15 @@
 
 	<!-- Modernizr JS -->
 	<script src="js/modernizr-2.6.2.min.js"></script>
+
 	<!-- FOR IE9 below -->
 	<!--[if lt IE 9]>
 	<script src="js/respond.min.js"></script>
 	<![endif]-->
-
+	<!-- Sweet Alert - Description -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+</head>
 </head>
 
 <body>
@@ -271,22 +275,20 @@
 					<div class="fh5co-tabs">
 						<ul class="fh5co-tab-nav">
 							<li class="active"><a href="#" data-tab="1"><span class="visible-xs">I.P.</span><span
-										class="hidden-xs">Impresión</span></a></li>
+										class="hidden-xs">IMPRESION PRINT</span></a></li>
 							<li><a href="#" data-tab="2"><span class="visible-xs">C.L.</span><span
-										class="hidden-xs">Corte
-										Láser</span></a></li>
+										class="hidden-xs">VALLAS PUBLICITARIAS</span></a></li>
 							<li><a href="#" data-tab="3"><span class="visible-xs">E.X.</span><span
-										class="hidden-xs">Excibición Portable</span></a></li>
+										class="hidden-xs">AVISOS DE FACHADA</span></a></li>
 							<li><a href="#" data-tab="4"><span class="visible-xs">VLL.</span><span
-										class="hidden-xs">Vallas</span></a></li>
+										class="hidden-xs">PUNTO DE VENTA</span></a></li>
 
 							<li><a href="#" data-tab="5"><span class="visible-xs">P.V.</span><span
-										class="hidden-xs">Punto
-										de Venta</span></a></li>
+										class="hidden-xs">CERRAMIENTOS PUBLICITARIOS</span></a></li>
 							<li><a href="#" data-tab="6"><span class="visible-xs">FHD.</span><span
-										class="hidden-xs">Fachada</span></a></li>
+										class="hidden-xs">DECORACION VEHICULAR</span></a></li>
 							<li><a href="#" data-tab="7"><span class="visible-xs">CRR.</span><span
-										class="hidden-xs">Cerramientos</span></a></li>
+										class="hidden-xs">BANDERAS FLAGS</span></a></li>
 						</ul>
 
 						<!-- INICIO SECCION IMPRESION -->
@@ -296,7 +298,7 @@
 									<li class="text-center">
 										<span><img src="images/hoarding.svg" class="img-responsive" alt=""></span>
 										<hr>
-										<h4>Gran formato</h4>
+										<h4>DIGITAL GRAN FORMATO</h4>
 										<small>Impresión digital gran formato alta calidad.</small>
 										<br>
 										<hr>
@@ -330,11 +332,49 @@
 									<li class="text-center">
 										<span><img src="images/textile.svg" class="img-responsive" alt=""></span>
 										<hr>
-										<h4>TEXTIL</h4>
+										<h4>DTF TEXTIL</h4>
 										<small>Impresión textil gran formato personalizada.</small>
 										<br>
 										<hr>
-										<p><a href="#" class="time">Más <i class="icon-arrow-right"></i></a></p>
+										<p><a href="#" id="alertButton" class="time">Más <i
+													class="icon-arrow-right"></i></a></p>
+										<script>
+											document.getElementById('miBoton').addEventListener('click', () => {
+												Swal.fire({
+													title: 'Galería de Imágenes',
+													html: `
+																<p class="text-green">Desplazamiento Automático: Se añadió una función setInterval para cambiar automáticamente las imágenes cada 3 segundos.
+												Tamaño de las Imágenes: Las imágenes se ajustaron a 300x300 píxeles para que sean más grandes.</p>
+																<hr>
+																<div class="carousel">
+																	<div class="carousel-inner">
+																		<img src="book.jpg" alt="Imagen 1">
+																		<img src="g1.jpg" alt="Imagen 2">
+																		<img src="g2.jpg" alt="Imagen 3">
+																		<img src="g3.jpg" alt="Imagen 4">
+																	</div>
+																</div>
+															`,
+													confirmButtonText: 'Aceptar',
+													width: '70%', // máximo del modal
+													padding: '1rem',
+													maxWidth: '70vw' // ancho del viewport
+												});
+
+												// Función para desplazar automáticamente las imágenes
+												let currentIndex = 0;
+												const images = document.querySelectorAll('.carousel-inner img');
+												const totalImages = images.length;
+
+												setInterval(() => {
+													currentIndex = (currentIndex + 1) % totalImages; // ciclo
+													const offset = -currentIndex * 300; 
+													document.querySelector('.carousel-inner').style.transform = `translateX(${offset}px)`;
+												}, 3000); // 3 segundos
+											});
+										</script>
+
+
 									</li>
 									<li class="text-center">
 										<span><img src="images/lithography.svg" class="img-responsive" alt=""></span>
@@ -357,9 +397,10 @@
 									<li class="text-center">
 										<span><img src="images/plotter.svg" class="img-responsive" alt=""></span>
 										<hr>
-										<h4>PLOTTER DE CORTE</h4>
+										<h4>SUBLIMACION</h4>
 										<small>Impresión plotter gran formato precisa y rápida.</small>
 										<br>
+										<hr>
 										<p><a href="#" class="time">Más <i class="icon-arrow-right"></i></a></p>
 									</li>
 									<li class="text-center">
@@ -368,11 +409,26 @@
 										<h4>SCREEN</h4>
 										<small>Impresión serigráfica alta durabilidad y definición.</small>
 										<br>
+										<hr>
 										<p><a href="#" class="time">Más <i class="icon-arrow-right"></i></a></p>
 									</li>
 									<li class="text-center">
+										<span><img src="images/screen.svg" class="img-responsive" alt=""></span>
+										<hr>
+										<h4>RIGIDO</h4>
+										<small>Impresión serigráfica alta durabilidad y definición.</small>
+										<br>
+										<hr>
+										<p><a href="#" class="time">Más <i class="icon-arrow-right"></i></a></p>
 									</li>
 									<li class="text-center">
+										<span><img src="images/screen.svg" class="img-responsive" alt=""></span>
+										<hr>
+										<h4>DTF UV</h4>
+										<small>Impresión serigráfica alta durabilidad y definición.</small>
+										<br>
+										<hr>
+										<p><a href="#" class="time">Más <i class="icon-arrow-right"></i></a></p>
 									</li>
 								</ul>
 							</div>
@@ -385,7 +441,7 @@
 									<li class="text-center">
 										<span><img src="images/cLaser.svg" class="img-responsive" alt=""></span>
 										<hr>
-										<h4>Corte laser</h4>
+										<h4>METALICAS TUBULARES</h4>
 										<small>Corte láser precisión extrema y versatilidad.</small>
 										<br>
 										<hr>
@@ -394,19 +450,47 @@
 									<li class="text-center">
 										<span><img src="images/graLaser.svg" class="img-responsive" alt=""></span>
 										<hr>
-										<h4>Grabado laser</h4>
+										<h4>CONVENCIONALES CON TABLERO EN LAMINA</h4>
 										<small>Grabado láser detalles finos y personalizados.</small>
 										<br>
 										<hr>
 										<p><a href="#" class="time">Más <i class="icon-arrow-right"></i></a></p>
 									</li>
 									<li class="text-center">
+										<span><img src="images/graLaser.svg" class="img-responsive" alt=""></span>
+										<hr>
+										<h4>METALICAS CONVENCIONALES CON BASTIDOR</h4>
+										<small>Grabado láser detalles finos y personalizados.</small>
+										<br>
+										<hr>
+										<p><a href="#" class="time">Más <i class="icon-arrow-right"></i></a></p>
 									</li>
 									<li class="text-center">
+										<span><img src="images/graLaser.svg" class="img-responsive" alt=""></span>
+										<hr>
+										<h4>VALLAS DE CONTENCION</h4>
+										<small>Grabado láser detalles finos y personalizados.</small>
+										<br>
+										<hr>
+										<p><a href="#" class="time">Más <i class="icon-arrow-right"></i></a></p>
 									</li>
 									<li class="text-center">
+										<span><img src="images/graLaser.svg" class="img-responsive" alt=""></span>
+										<hr>
+										<h4>VALLAS LED</h4>
+										<small>Grabado láser detalles finos y personalizados.</small>
+										<br>
+										<hr>
+										<p><a href="#" class="time">Más <i class="icon-arrow-right"></i></a></p>
 									</li>
 									<li class="text-center">
+										<span><img src="images/graLaser.svg" class="img-responsive" alt=""></span>
+										<hr>
+										<h4>VALLAS EN MADERA</h4>
+										<small>Grabado láser detalles finos y personalizados.</small>
+										<br>
+										<hr>
+										<p><a href="#" class="time">Más <i class="icon-arrow-right"></i></a></p>
 									</li>
 									<li class="text-center">
 									</li>
@@ -423,7 +507,7 @@
 									<li class="text-center">
 										<span><img src="images/exercise.svg" class="img-responsive" alt=""></span>
 										<hr>
-										<h4>Stand portables</h4>
+										<h4>TIPO BASTIDOR</h4>
 										<small>Amplio, detalles, calidad, personalización, versatilidad.</small>
 										<br>
 										<hr>
@@ -432,7 +516,7 @@
 									<li class="text-center">
 										<span><img src="images/dumbbell.svg" class="img-responsive" alt=""></span>
 										<hr>
-										<h4>Counter mesas</h4>
+										<h4>TIPO CAJA DE LUZ</h4>
 										<small>Diseño, color, técnicas, tejidos, creatividad.</small>
 										<br>
 										<p><a href="#" class="time">Más <i class="icon-arrow-right"></i></a></p>
@@ -440,50 +524,20 @@
 									<li class="text-center">
 										<span><img src="images/yoga-carpet.svg" class="img-responsive" alt=""></span>
 										<hr>
-										<h4>Pp tipo araña</h4>
+										<h4>TIPO VOLUMETRICOS</h4>
 										<small>Precisión, impresión, planchas, alta calidad, producción.</small>
 										<br>
 										<p><a href="#" class="time">Más <i class="icon-arrow-right"></i></a></p>
 									</li>
 									<li class="text-center">
-										<span><img src="images/impLaser.png" class="img-responsive" alt=""></span>
-										<hr>
-										<h4>Pp Tipo Trípode</h4>
-										<small>Corte, grabado, precisión, rapidez, versatilidad.</small>
-										<br>
-										<p><a href="#" class="time">Más <i class="icon-arrow-right"></i></a></p>
 									</li>
 									<li class="text-center">
-										<span><img src="images/ballet.svg" class="img-responsive" alt=""></span>
-										<hr>
-										<h4>Pp Tipo Roll Up</h4>
-										<small>Corte, diseño, precisión, personalización, creatividad.</small>
-										<br>
-										<p><a href="#" class="time">Más <i class="icon-arrow-right"></i></a></p>
 									</li>
 									<li class="text-center">
-										<span><img src="images/dumbbell.svg" class="img-responsive" alt=""></span>
-										<hr>
-										<h4>Banderas Flag</h4>
-										<small>Impresión, serigrafía, colores, detalles, durabilidad.</small>
-										<br>
-										<p><a href="#" class="time">Más <i class="icon-arrow-right"></i></a></p>
 									</li>
 									<li class="text-center">
-										<span><img src="images/dumbbell.svg" class="img-responsive" alt=""></span>
-										<hr>
-										<h4>Revisteros</h4>
-										<small>Impresión, serigrafía, colores, detalles, durabilidad.</small>
-										<br>
-										<p><a href="#" class="time">Más <i class="icon-arrow-right"></i></a></p>
 									</li>
 									<li class="text-center">
-										<span><img src="images/dumbbell.svg" class="img-responsive" alt=""></span>
-										<hr>
-										<h4>Hombre Valla</h4>
-										<small>Impresión, serigrafía, colores, detalles, durabilidad.</small>
-										<br>
-										<p><a href="#" class="time">Más <i class="icon-arrow-right"></i></a></p>
 									</li>
 								</ul>
 							</div>
@@ -493,7 +547,7 @@
 									<li class="text-center">
 										<span><img src="images/exercise.svg" class="img-responsive" alt=""></span>
 										<hr>
-										<h4>Vallas Metálicas Convencionales con Bastidor</h4>
+										<h4>DECORACION DE INTERIORES</h4>
 										<small>Amplio, detalles, calidad, personalización, versatilidad.</small>
 										<br>
 										<p><a href="#" class="time">Más <i class="icon-arrow-right"></i></a></p>
@@ -501,7 +555,7 @@
 									<li class="text-center">
 										<span><img src="images/dumbbell.svg" class="img-responsive" alt=""></span>
 										<hr>
-										<h4>Vallas de Contención</h4>
+										<h4>TROPEZONES</h4>
 										<small>Diseño, color, técnicas, tejidos, creatividad.</small>
 										<br>
 										<p><a href="#" class="time">Más <i class="icon-arrow-right"></i></a></p>
@@ -509,14 +563,26 @@
 									<li class="text-center">
 										<span><img src="images/yoga-carpet.svg" class="img-responsive" alt=""></span>
 										<hr>
-										<h4>Vallas con Módulos en Lámina y Baldosa Sublimada</h4>
+										<h4>AVISOS PARA PARED</h4>
 										<small>Precisión, impresión, planchas, alta calidad, producción.</small>
 										<br>
 										<p><a href="#" class="time">Más <i class="icon-arrow-right"></i></a></p>
 									</li>
 									<li class="text-center">
+										<span><img src="images/yoga-carpet.svg" class="img-responsive" alt=""></span>
+										<hr>
+										<h4>DECORACION CON PINTURA</h4>
+										<small>Precisión, impresión, planchas, alta calidad, producción.</small>
+										<br>
+										<p><a href="#" class="time">Más <i class="icon-arrow-right"></i></a></p>
 									</li>
 									<li class="text-center">
+										<span><img src="images/yoga-carpet.svg" class="img-responsive" alt=""></span>
+										<hr>
+										<h4>STAND'S PERSONALIZADOS</h4>
+										<small>Precisión, impresión, planchas, alta calidad, producción.</small>
+										<br>
+										<p><a href="#" class="time">Más <i class="icon-arrow-right"></i></a></p>
 									</li>
 									<li class="text-center">
 									</li>
@@ -532,7 +598,7 @@
 									<li class="text-center">
 										<span><img src="images/exercise.svg" class="img-responsive" alt=""></span>
 										<hr>
-										<h4>Tropezones de muñecos</h4>
+										<h4>CON MODULOS BASTIDORES</h4>
 										<small>Amplio, detalles, calidad, personalización, versatilidad.</small>
 										<br>
 										<p><a href="#" class="time">Más <i class="icon-arrow-right"></i></a></p>
@@ -540,7 +606,7 @@
 									<li class="text-center">
 										<span><img src="images/dumbbell.svg" class="img-responsive" alt=""></span>
 										<hr>
-										<h4>Tropezones de letrero</h4>
+										<h4>CON MODULOS METALICOS EN LAMINA</h4>
 										<small>Diseño, color, técnicas, tejidos, creatividad.</small>
 										<br>
 										<p><a href="#" class="time">Más <i class="icon-arrow-right"></i></a></p>
@@ -548,7 +614,7 @@
 									<li class="text-center">
 										<span><img src="images/yoga-carpet.svg" class="img-responsive" alt=""></span>
 										<hr>
-										<h4>Tropezones de pared</h4>
+										<h4>CON DECORACION PLANA</h4>
 										<small>Precisión, impresión, planchas, alta calidad, producción.</small>
 										<br>
 										<p><a href="#" class="time">Más <i class="icon-arrow-right"></i></a></p>
@@ -556,12 +622,18 @@
 									<li class="text-center">
 										<span><img src="images/impLaser.png" class="img-responsive" alt=""></span>
 										<hr>
-										<h4>Mobiliario Personalizado</h4>
+										<h4>TIPO MAYA</h4>
 										<small>Corte, grabado, precisión, rapidez, versatilidad.</small>
 										<br>
 										<p><a href="#" class="time">Más <i class="icon-arrow-right"></i></a></p>
 									</li>
 									<li class="text-center">
+										<span><img src="images/impLaser.png" class="img-responsive" alt=""></span>
+										<hr>
+										<h4>TIPO REJA</h4>
+										<small>Corte, grabado, precisión, rapidez, versatilidad.</small>
+										<br>
+										<p><a href="#" class="time">Más <i class="icon-arrow-right"></i></a></p>
 									</li>
 									<li class="text-center">
 									</li>
@@ -577,7 +649,7 @@
 									<li class="text-center">
 										<span><img src="images/exercise.svg" class="img-responsive" alt=""></span>
 										<hr>
-										<h4>Tipo Bastidor</h4>
+										<h4>MODULO TIPO BASTIDOR SOBRE CARROCERIA</h4>
 										<small>Amplio, detalles, calidad, personalización, versatilidad.</small>
 										<br>
 										<p><a href="#" class="time">Más <i class="icon-arrow-right"></i></a></p>
@@ -585,7 +657,7 @@
 									<li class="text-center">
 										<span><img src="images/dumbbell.svg" class="img-responsive" alt=""></span>
 										<hr>
-										<h4>Tipo Caja de Luz</h4>
+										<h4>POLARIZADOS DE VIDRIOS</h4>
 										<small>Diseño, color, técnicas, tejidos, creatividad.</small>
 										<br>
 										<p><a href="#" class="time">Más <i class="icon-arrow-right"></i></a></p>
@@ -593,7 +665,7 @@
 									<li class="text-center">
 										<span><img src="images/yoga-carpet.svg" class="img-responsive" alt=""></span>
 										<hr>
-										<h4>Tipo letrero led</h4>
+										<h4>DECORACION CON VINILO AUTO-ADHESIVO</h4>
 										<small>Precisión, impresión, planchas, alta calidad, producción.</small>
 										<br>
 										<p><a href="#" class="time">Más <i class="icon-arrow-right"></i></a></p>
@@ -616,7 +688,7 @@
 									<li class="text-center">
 										<span><img src="images/exercise.svg" class="img-responsive" alt=""></span>
 										<hr>
-										<h4>Cerramientos de Paneles</h4>
+										<h4>ASTAS METALICAS Y TELA CONFECCIONADA</h4>
 										<small>Amplio, detalles, calidad, personalización, versatilidad.</small>
 										<br>
 										<p><a href="#" class="time">Más <i class="icon-arrow-right"></i></a></p>
@@ -624,14 +696,26 @@
 									<li class="text-center">
 										<span><img src="images/dumbbell.svg" class="img-responsive" alt=""></span>
 										<hr>
-										<h4>Cerramientos de Lona o Tela</h4>
+										<h4>PORTATILES DESARMABLES</h4>
 										<small>Diseño, color, técnicas, tejidos, creatividad.</small>
 										<br>
 										<p><a href="#" class="time">Más <i class="icon-arrow-right"></i></a></p>
 									</li>
 									<li class="text-center">
+										<span><img src="images/dumbbell.svg" class="img-responsive" alt=""></span>
+										<hr>
+										<h4>BANDERAS DE ESCRITORIO</h4>
+										<small>Diseño, color, técnicas, tejidos, creatividad.</small>
+										<br>
+										<p><a href="#" class="time">Más <i class="icon-arrow-right"></i></a></p>
 									</li>
 									<li class="text-center">
+										<span><img src="images/dumbbell.svg" class="img-responsive" alt=""></span>
+										<hr>
+										<h4>TIRAS DE BANDERAS COLGANTES</h4>
+										<small>Diseño, color, técnicas, tejidos, creatividad.</small>
+										<br>
+										<p><a href="#" class="time">Más <i class="icon-arrow-right"></i></a></p>
 									</li>
 									<li class="text-center">
 									</li>
@@ -650,6 +734,32 @@
 				</div>
 			</div>
 		</div>
+
+
+		<!-- <script>
+			document.getElementById('alertButton').addEventListener('click', function () {
+				swal({
+					title: "Impresión DTF Textil",
+					text: "Es un proceso de impresión directa sobre film. Se imprime en un film especial con tintas DTF...",
+					icon: "warning",
+					buttons: {
+						cancel: "Cancelar",
+						confirm: "Aceptar"
+					},
+					html: `
+						<div style="display: flex; justify-content: space-around; flex-wrap: wrap;">
+							<img src="images/gf1.jpg" alt="Imagen 1" style="width: 45%; margin: 5px;">
+							<img src="images/gf2.jpg" alt="Imagen 2" style="width: 45%; margin: 5px;">
+							<img src="images/gf3.jpg" alt="Imagen 3" style="width: 45%; margin: 5px;">
+							<img src="images/gf4.jpg" alt="Imagen 4" style="width: 45%; margin: 5px;">
+						</div>
+					`,
+					className: "custom-swal"
+				});
+			});
+		</script> -->
+
+
 		<!-- <div id="fh5co-pricing">
 		<div class="container">
 			<div class="row animate-box">
@@ -732,7 +842,7 @@
 		</div>
 	</div> -->
 
-		
+
 
 		<div id="fh5co-testimonial" class="fh5co-bg-section">
 			<div class="container">
