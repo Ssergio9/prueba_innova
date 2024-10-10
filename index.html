@@ -239,12 +239,107 @@
 										<p><button class="time" id="miBoton1">Más <i
 													class="icon-arrow-right"></i></button>
 										</p>
+
 										<script>
 											document.getElementById('miBoton1').addEventListener('click', () => {
 												Swal.fire({
 													html: `
-													<h2 class="title-sweet">IMPRESION DTF TEXTIL</h2>
-													<p class="text-black">Impresión directa sobre film: se imprime un film especial con tintas DTF, se le aplica un polvo adhesivo y se cura con calor. Luego, se puede transferir a cualquier prenda, como jeans, algodón y poliéster.</p>
+														<h2 class="title-sweet">IMPRESIÓN DIGITAL GRAN FORMATO</h2>
+														<hr class="hr-sweet">
+														<p class="text-black">La impresión en gran formato es una herramienta poderosa que permite adaptar la publicidad a grandes superficies.</p>
+														<hr class="hr-sweet">
+														<div class="content">
+															<div class="lists">
+																<div>
+																	<h4>Productos Stock</h4>
+																	<ul>
+																		<li>Pendones</li>
+																		<li>Vallas</li>
+																		<li>Decoración de espacios</li>
+																		<li>Avisos</li>
+																	</ul>
+																</div>
+																<div>
+																	<h4>Impresión <br> sobre</h4>
+																	<ul>
+																		<li>Banner: brillante - mate</li>
+																		<li>Vinilo blanco - transparente</li>
+																		<li>Panaflex</li>
+																		<li>Micro-perforado</li>
+																		<li>Lona mesh</li>
+																		<li>Pet o backlite</li>
+																		<li>Telas: camperink - spectra</li>
+																		<li>Poliestireno</li>
+																	</ul>
+																</div>
+																<div>
+																	<h4>Calidad de impresión</h4>
+																	<ul>
+																		<li>Tinta UV</li>
+																		<li>ECO Solvente</li>
+																		<li>Tecnologia EPSON</li>
+																		<li>Resolución 1440 DFI</li>
+																	</ul>
+																</div>
+															</div>
+															<div class="carousel">
+																<button class="prev" id="prevButton">&#10094;</button>
+																<div class="carousel-inner">
+																	<img src="images/gf1.jpg" alt="Imagen 1">
+																	<img src="images/gf2.jpg" alt="Imagen 2">
+																	<img src="images/gf3.jpg" alt="Imagen 3">
+																	<img src="images/gf4.jpg" alt="Imagen 4">
+																</div>
+																<button class="next" id="nextButton">&#10095;</button>
+															</div>
+														</div>
+														<hr class="hr-sweet">
+													`,
+													confirmButtonText: 'Cerrar',
+													customClass: {
+														confirmButton: 'custom-button'
+													},
+													width: '80%',
+													padding: '1rem',
+													maxWidth: '95vw'
+												});
+
+												// Lógica para el carrusel manual
+												let currentIndex = 0;
+												const images = document.querySelectorAll('.carousel-inner img');
+												const totalImages = images.length;
+
+												document.getElementById('nextButton').addEventListener('click', () => {
+													if (currentIndex < totalImages - 1) {
+														currentIndex++;
+														updateCarousel();
+													}
+												});
+
+												document.getElementById('prevButton').addEventListener('click', () => {
+													if (currentIndex > 0) {
+														currentIndex--;
+														updateCarousel();
+													}
+												});
+
+												function updateCarousel() {
+													images.forEach((img, index) => {
+														img.style.display = index === currentIndex ? 'block' : 'none';
+													});
+												}
+
+												updateCarousel();
+											});
+										</script>
+
+										<!-- SWEET SIN LISTAS  -->
+										<!-- <script>
+											document.getElementById('miBoton1').addEventListener('click', () => {
+												Swal.fire({
+													html: `
+													<h2 class="title-sweet">IMPRESIÓN DIGITAL GRAN FORMATO</h2>
+													<p class="text-black">La impresión en gran formato es una poderosa herramienta diseñada para adaptar la publicidad a amplias superficies.</p>
 													<hr>
 													<div class="content">
 														<div class="carousel">
@@ -295,7 +390,7 @@
 
 												updateCarousel();
 											});
-										</script>
+										</script> -->
 									</li>
 									<li class="text-center">
 										<span><img src="images/textile.svg" class="img-responsive" alt=""></span>
@@ -312,32 +407,26 @@
 												Swal.fire({
 													html: `
 														<h2 class="title-sweet">IMPRESION DTF TEXTIL</h2>
+														<hr class="hr-sweet">
 														<p class="text-black">Impresión directa sobre film: se imprime un film especial con tintas DTF, se le aplica un polvo adhesivo y se cura con calor. Luego, se puede transferir a cualquier prenda, como jeans, algodón y poliéster.</p>
-														<hr>
+														<hr class="hr-sweet">
 														<div class="content">
 															<div class="lists">
 																<div>
-																	<h4>Beneficios</h4>
+																	<h4>Area de <br> impresión</h4>
 																	<ul>
-																		<li>Beneficio 1</li>
-																		<li>Beneficio 2</li>
-																		<li>Beneficio 3</li>
+																		<li>Hasta 1.5 Mts</li>
 																	</ul>
 																</div>
 																<div>
-																	<h4>Características</h4>
+																	<h4>Impresión <br> sobre</h4>
 																	<ul>
-																		<li>Característica 1</li>
-																		<li>Característica 2</li>
-																		<li>Característica 3</li>
-																	</ul>
-																</div>
-																<div>
-																	<h4>Usos</h4>
-																	<ul>
-																		<li>Uso 1</li>
-																		<li>Uso 2</li>
-																		<li>Uso 3</li>
+																		<li>Acrílico</li>
+																		<li>Poliestireno</li>
+																		<li>Madera</li>
+																		<li>MDF</li>
+																		<li>Cartón</li>
+																		<li>Vidrio</li>
 																	</ul>
 																</div>
 															</div>
@@ -352,6 +441,7 @@
 																<button class="next" id="nextButton">&#10095;</button>
 															</div>
 														</div>
+														<hr class="hr-sweet">
 													`,
 													confirmButtonText: 'Cerrar',
 													customClass: {
@@ -398,7 +488,96 @@
 										<small>Impresión offset alta resolución profesional.</small>
 										<br>
 										<hr>
-										<p><a href="#" class="time">Más <i class="icon-arrow-right"></i></a></p>
+										<p><a href="#" class="time" id="miBoton3">Más <i class="icon-arrow-right"></i></a></p>
+										<script>
+											document.getElementById('miBoton3').addEventListener('click', () => {
+												Swal.fire({
+													html: `
+														<h2 class="title-sweet">IMPRESIÓN OFF-SET / LITOGRAFÍA</h2>
+														<hr class="hr-sweet">
+														<p class="text-black">La impresión offset, o litografía, utiliza planchas para transferir imágenes a papel. Ofrece alta calidad, es eficiente para grandes tiradas y permite el uso de tintas ecológicas. Ideal para trabajos que requieren precisión y detalle.</p>
+														<hr class="hr-sweet">
+														<div class="content">
+															<div class="lists">
+																<div>
+																	<h4>Area de <br> impresión</h4>
+																	<ul>
+																		<li>Pliego<br>(100 x 70 cms)</li>
+																		<li>1/2 Pliego<br>(70 x 50 cms)</li>
+																		<li>1/4 Pliego<br>(50 x 35 cms)</li>
+																	</ul>
+																</div>
+																<div>
+																	<h4>Impresión <br> sobre</h4>
+																	<ul>
+																		<li>Papel bond</li>
+																		<li>Propalcote</li>
+																		<li>Periódico</li>
+																		<li>Cartulinas</li>
+																		<li>Papeles especiales</li>
+																	</ul>
+																</div>
+																<div>
+																	<h4>Stock<br><br></h4>
+																	<ul>
+																		<li>Volantes</li>
+																		<li>Tarjetas</li>
+																		<li>Empaques</li>
+																		<li>Revistas</li>
+																		<li>Catalogos</li>
+																	</ul>
+																</div>
+															</div>
+															<div class="carousel">
+																<button class="prev" id="prevButton">&#10094;</button>
+																<div class="carousel-inner">
+																	<img src="images/gf1.jpg" alt="Imagen 1">
+																	<img src="images/gf2.jpg" alt="Imagen 2">
+																	<img src="images/gf3.jpg" alt="Imagen 3">
+																	<img src="images/gf4.jpg" alt="Imagen 4">
+																</div>
+																<button class="next" id="nextButton">&#10095;</button>
+															</div>
+														</div>
+														<hr class="hr-sweet">
+													`,
+													confirmButtonText: 'Cerrar',
+													customClass: {
+														confirmButton: 'custom-button'
+													},
+													width: '80%',
+													padding: '1rem',
+													maxWidth: '95vw'
+												});
+
+												// Lógica para el carrusel manual
+												let currentIndex = 0;
+												const images = document.querySelectorAll('.carousel-inner img');
+												const totalImages = images.length;
+
+												document.getElementById('nextButton').addEventListener('click', () => {
+													if (currentIndex < totalImages - 1) {
+														currentIndex++;
+														updateCarousel();
+													}
+												});
+
+												document.getElementById('prevButton').addEventListener('click', () => {
+													if (currentIndex > 0) {
+														currentIndex--;
+														updateCarousel();
+													}
+												});
+
+												function updateCarousel() {
+													images.forEach((img, index) => {
+														img.style.display = index === currentIndex ? 'block' : 'none';
+													});
+												}
+
+												updateCarousel();
+											});
+										</script>
 									</li>
 									<li class="text-center">
 										<span><img src="images/impLaser.svg" class="img-responsive" alt=""></span>
@@ -407,7 +586,86 @@
 										<small>Impresión láser precisión rápida y nítida.</small>
 										<br>
 										<hr>
-										<p><a href="#" class="time">Más <i class="icon-arrow-right"></i></a></p>
+										<p><a href="#" class="time" id="miBoton4">Más <i class="icon-arrow-right"></i></a></p>
+										<script>
+											document.getElementById('miBoton4').addEventListener('click', () => {
+												Swal.fire({
+													html: `
+														<h2 class="title-sweet">IMPRESIÓN LÁSER</h2>
+														<hr class="hr-sweet">
+														<p class="text-black">La impresión offset, o litografía, utiliza planchas para transferir imágenes a papel. Ofrece alta calidad, es eficiente para grandes tiradas y permite el uso de tintas ecológicas. Ideal para trabajos que requieren precisión y detalle.</p>
+														<hr class="hr-sweet">
+														<div class="content">
+															<div class="lists">
+																<div>
+																	<h4>Area de <br> impresión</h4>
+																	<ul>
+																		<li>Medida de<br>(45X30cms)</li>
+																	</ul>
+																</div>
+																<div>
+																	<h4>Stock<br><br></h4>
+																	<ul>
+																		<li>Tarjetas de presentación</li>
+																		<li>Volantes</li>
+																		<li>Brochures</li>
+																		<li>Carpetas</li>
+																		<li>Afiches</li>
+																		<li>Revistas</li>
+																		<li>Catálogos</li>
+																	</ul>
+																</div>
+															</div>
+															<div class="carousel">
+																<button class="prev" id="prevButton">&#10094;</button>
+																<div class="carousel-inner">
+																	<img src="images/gf1.jpg" alt="Imagen 1">
+																	<img src="images/gf2.jpg" alt="Imagen 2">
+																	<img src="images/gf3.jpg" alt="Imagen 3">
+																	<img src="images/gf4.jpg" alt="Imagen 4">
+																</div>
+																<button class="next" id="nextButton">&#10095;</button>
+															</div>
+														</div>
+														<hr class="hr-sweet">
+													`,
+													confirmButtonText: 'Cerrar',
+													customClass: {
+														confirmButton: 'custom-button'
+													},
+													width: '80%',
+													padding: '1rem',
+													maxWidth: '95vw'
+												});
+
+												// Lógica para el carrusel manual
+												let currentIndex = 0;
+												const images = document.querySelectorAll('.carousel-inner img');
+												const totalImages = images.length;
+
+												document.getElementById('nextButton').addEventListener('click', () => {
+													if (currentIndex < totalImages - 1) {
+														currentIndex++;
+														updateCarousel();
+													}
+												});
+
+												document.getElementById('prevButton').addEventListener('click', () => {
+													if (currentIndex > 0) {
+														currentIndex--;
+														updateCarousel();
+													}
+												});
+
+												function updateCarousel() {
+													images.forEach((img, index) => {
+														img.style.display = index === currentIndex ? 'block' : 'none';
+													});
+												}
+
+												updateCarousel();
+											});
+										</script>
 									</li>
 									<li class="text-center">
 										<span><img src="images/plotter.svg" class="img-responsive" alt=""></span>
