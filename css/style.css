@@ -850,6 +850,11 @@ figure {
   color: #fff;
 }
 
+.fh5co-tabs .fh5co-tab-nav img {
+  height: 25px;
+  width: 25px;
+}
+
 .fh5co-tabs .fh5co-tab-content-wrap {
   clear: both;
   position: relative;
