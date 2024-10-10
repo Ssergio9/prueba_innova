@@ -58,6 +58,8 @@
 	<link rel="stylesheet" href="css/modal-popup.css">
 	<!-- Whatsapp icon -->
 	<link rel="stylesheet" href="css/whatsapp-style.css">
+	<!-- Alert modal - Sweet Alert 2 -->
+	<link rel="stylesheet" href="css/alert-modal.css">
 
 	<!-- Modernizr JS -->
 	<script src="js/modernizr-2.6.2.min.js"></script>
@@ -126,7 +128,6 @@
 								<li><a href="about.html">Sobre</a></li>
 								<li><a href="blog.html">Catalogo</a></li>
 								<li><a href="contact.html">Contacto</a></li>
-								<!-- <li class="btn-cta"><a href="#"><span>Login</span></a></li> -->
 							</ul>
 						</div>
 					</div>
@@ -134,7 +135,6 @@
 				</div>
 			</div>
 		</nav>
-
 		<header id="fh5co-header" class="fh5co-cover" role="banner" style="background-image:url(images/img_bg_2.jpg);"
 			data-stellar-background-ratio="0.5">
 			<div class="overlay"></div>
@@ -157,7 +157,6 @@
 				</div>
 			</div>
 		</header>
-
 		<div id="fh5co-services" class="fh5co-bg-section">
 			<div class="container">
 				<div class="row">
@@ -197,71 +196,6 @@
 				</div>
 			</div>
 		</div>
-
-		<!-- <div id="fh5co-trainer">
-		<div class="container">
-			<div class="row animate-box">
-				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-					<h2>Fitness Expert</h2>
-					<p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-4 col-sm-4 animate-box">
-					<div class="trainer">
-						<a href="#"><img class="img-responsive" src="images/trainer-1.jpg" alt="trainer"></a>
-						<div class="title">
-							<h3><a href="#">Angel Adams</a></h3>
-							<span>Dance Expert</span>
-						</div>
-						<div class="desc text-center">
-							<ul class="fh5co-social-icons">
-								<li><a href="#"><i class="icon-twitter"></i></a></li>
-								<li><a href="https://www.facebook.com/InnovaPublicidadVisualSAS"><i class="icon-facebook"></i></a></li>
-								<li><a href="#"><i class="icon-linkedin"></i></a></li>
-								<li><a href="#"><i class="icon-dribbble"></i></a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4 col-sm-4 animate-box">
-					<div class="trainer">
-						<a href="#"><img class="img-responsive" src="images/trainer-2.jpg" alt="trainer"></a>
-						<div class="title">
-							<h3><a href="#">Arnold Smith</a></h3>
-							<span>Body Building Expert</span>
-						</div>
-						<div class="desc text-center">
-							<ul class="fh5co-social-icons">
-								<li><a href="#"><i class="icon-twitter"></i></a></li>
-								<li><a href="https://www.facebook.com/InnovaPublicidadVisualSAS"><i class="icon-facebook"></i></a></li>
-								<li><a href="#"><i class="icon-linkedin"></i></a></li>
-								<li><a href="#"><i class="icon-dribbble"></i></a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4 col-sm-4 animate-box">
-					<div class="trainer">
-						<a href="#"><img class="img-responsive" src="images/trainer-3.jpg" alt="trainer"></a>
-						<div class="title">
-							<h3><a href="#">Rachel Seely</a></h3>
-							<span>Yoga Expert</span>
-						</div>
-						<div class="desc text-center">
-							<ul class="fh5co-social-icons">
-								<li><a href="#"><i class="icon-twitter"></i></a></li>
-								<li><a href="https://www.facebook.com/InnovaPublicidadVisualSAS"><i class="icon-facebook"></i></a></li>
-								<li><a href="#"><i class="icon-linkedin"></i></a></li>
-								<li><a href="#"><i class="icon-dribbble"></i></a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div> -->
-
 		<div id="fh5co-schedule" class="fh5co-bg" style="background-image: url(images/img_bg_1.jpg);">
 			<div class="container">
 				<div class="row">
@@ -291,7 +225,7 @@
 										class="hidden-xs">BANDERAS FLAGS</span></a></li>
 						</ul>
 
-						<!-- INICIO SECCION IMPRESION -->
+
 						<div class="fh5co-tab-content-wrap">
 							<div class="fh5co-tab-content tab-content active" data-tab-content="1">
 								<ul class="class-schedule">
@@ -302,32 +236,66 @@
 										<small>Impresión digital gran formato alta calidad.</small>
 										<br>
 										<hr>
-										<p><button class="time" id="abrir">Más <i class="icon-arrow-right"></i></button>
+										<p><button class="time" id="miBoton1">Más <i
+													class="icon-arrow-right"></i></button>
 										</p>
-										<div id="miModal" class="modal">
-											<div class="flex" id="flex">
-												<div class="contenido-modal">
-													<div class="modal-header flex">
-														<h2 class="h2">Impresion digital - Gran Formato</h2>
-														<span class="close" id="close">&times;</span>
+										<script>
+											document.getElementById('miBoton1').addEventListener('click', () => {
+												Swal.fire({
+													html: `
+													<h2 class="title-sweet">IMPRESION DTF TEXTIL</h2>
+													<p class="text-black">Impresión directa sobre film: se imprime un film especial con tintas DTF, se le aplica un polvo adhesivo y se cura con calor. Luego, se puede transferir a cualquier prenda, como jeans, algodón y poliéster.</p>
+													<hr>
+													<div class="content">
+														<div class="carousel">
+															<button class="prev" id="prevButton">&#10094;</button>
+															<div class="carousel-inner">
+																<img src="images/gf1.jpg" alt="Imagen 1">
+																<img src="images/gf2.jpg" alt="Imagen 2">
+																<img src="images/gf3.jpg" alt="Imagen 3">
+																<img src="images/gf4.jpg" alt="Imagen 4">
+															</div>
+															<button class="next" id="nextButton">&#10095;</button>
+														</div>
 													</div>
-													<div class="modal-body">
-														<p>Ofrecemos una amplia variedad de productos en
-															nuestra línea de impresión a gran formato.
+												`,
+													confirmButtonText: 'Cerrar',
+													customClass: {
+														confirmButton: 'custom-button'
+													},
+													width: '80%',
+													padding: '1rem',
+													maxWidth: '95vw'
+												});
 
-															Descubre más sobre estos productos en las imágenes a la
-															derecha, y en la parte inferior encontrarás los diferentes
-															tipos de impresión digital que ofrecemos.</p>
+												// Lógica para el carrusel manual
+												let currentIndex = 0;
+												const images = document.querySelectorAll('.carousel-inner img');
+												const totalImages = images.length;
 
-														<img src="images/gf1.jpg" alt="Innova.">
-														<img src="images/gf2.jpg" alt="Innova.">
-														<img src="images/gf3.jpg" alt="Innova.">
-														<img src="images/gf4.jpg" alt="Innova.">
-													</div>
-												</div>
-											</div>
-										</div>
+												document.getElementById('nextButton').addEventListener('click', () => {
+													if (currentIndex < totalImages - 1) {
+														currentIndex++;
+														updateCarousel();
+													}
+												});
 
+												document.getElementById('prevButton').addEventListener('click', () => {
+													if (currentIndex > 0) {
+														currentIndex--;
+														updateCarousel();
+													}
+												});
+
+												function updateCarousel() {
+													images.forEach((img, index) => {
+														img.style.display = index === currentIndex ? 'block' : 'none';
+													});
+												}
+
+												updateCarousel();
+											});
+										</script>
 									</li>
 									<li class="text-center">
 										<span><img src="images/textile.svg" class="img-responsive" alt=""></span>
@@ -336,45 +304,92 @@
 										<small>Impresión textil gran formato personalizada.</small>
 										<br>
 										<hr>
-										<p><a href="#" id="alertButton" class="time">Más <i
-													class="icon-arrow-right"></i></a></p>
+										<p><button class="time" id="miBoton2">Más <i
+													class="icon-arrow-right"></i></button>
+										</p>
 										<script>
-											document.getElementById('miBoton').addEventListener('click', () => {
+											document.getElementById('miBoton2').addEventListener('click', () => {
 												Swal.fire({
-													title: 'Galería de Imágenes',
 													html: `
-																<p class="text-green">Desplazamiento Automático: Se añadió una función setInterval para cambiar automáticamente las imágenes cada 3 segundos.
-												Tamaño de las Imágenes: Las imágenes se ajustaron a 300x300 píxeles para que sean más grandes.</p>
-																<hr>
-																<div class="carousel">
-																	<div class="carousel-inner">
-																		<img src="book.jpg" alt="Imagen 1">
-																		<img src="g1.jpg" alt="Imagen 2">
-																		<img src="g2.jpg" alt="Imagen 3">
-																		<img src="g3.jpg" alt="Imagen 4">
-																	</div>
+														<h2 class="title-sweet">IMPRESION DTF TEXTIL</h2>
+														<p class="text-black">Impresión directa sobre film: se imprime un film especial con tintas DTF, se le aplica un polvo adhesivo y se cura con calor. Luego, se puede transferir a cualquier prenda, como jeans, algodón y poliéster.</p>
+														<hr>
+														<div class="content">
+															<div class="lists">
+																<div>
+																	<h4>Beneficios</h4>
+																	<ul>
+																		<li>Beneficio 1</li>
+																		<li>Beneficio 2</li>
+																		<li>Beneficio 3</li>
+																	</ul>
 																</div>
-															`,
-													confirmButtonText: 'Aceptar',
-													width: '70%', // máximo del modal
+																<div>
+																	<h4>Características</h4>
+																	<ul>
+																		<li>Característica 1</li>
+																		<li>Característica 2</li>
+																		<li>Característica 3</li>
+																	</ul>
+																</div>
+																<div>
+																	<h4>Usos</h4>
+																	<ul>
+																		<li>Uso 1</li>
+																		<li>Uso 2</li>
+																		<li>Uso 3</li>
+																	</ul>
+																</div>
+															</div>
+															<div class="carousel">
+																<button class="prev" id="prevButton">&#10094;</button>
+																<div class="carousel-inner">
+																	<img src="images/gf1.jpg" alt="Imagen 1">
+																	<img src="images/gf2.jpg" alt="Imagen 2">
+																	<img src="images/gf3.jpg" alt="Imagen 3">
+																	<img src="images/gf4.jpg" alt="Imagen 4">
+																</div>
+																<button class="next" id="nextButton">&#10095;</button>
+															</div>
+														</div>
+													`,
+													confirmButtonText: 'Cerrar',
+													customClass: {
+														confirmButton: 'custom-button'
+													},
+													width: '80%',
 													padding: '1rem',
-													maxWidth: '70vw' // ancho del viewport
+													maxWidth: '95vw'
 												});
 
-												// Función para desplazar automáticamente las imágenes
+												// Lógica para el carrusel manual
 												let currentIndex = 0;
 												const images = document.querySelectorAll('.carousel-inner img');
 												const totalImages = images.length;
 
-												setInterval(() => {
-													currentIndex = (currentIndex + 1) % totalImages; // ciclo
-													const offset = -currentIndex * 300; 
-													document.querySelector('.carousel-inner').style.transform = `translateX(${offset}px)`;
-												}, 3000); // 3 segundos
+												document.getElementById('nextButton').addEventListener('click', () => {
+													if (currentIndex < totalImages - 1) {
+														currentIndex++;
+														updateCarousel();
+													}
+												});
+
+												document.getElementById('prevButton').addEventListener('click', () => {
+													if (currentIndex > 0) {
+														currentIndex--;
+														updateCarousel();
+													}
+												});
+
+												function updateCarousel() {
+													images.forEach((img, index) => {
+														img.style.display = index === currentIndex ? 'block' : 'none';
+													});
+												}
+
+												updateCarousel();
 											});
 										</script>
-
-
 									</li>
 									<li class="text-center">
 										<span><img src="images/lithography.svg" class="img-responsive" alt=""></span>
@@ -432,10 +447,6 @@
 									</li>
 								</ul>
 							</div>
-							<!-- FIN SECCION IMPRESION -->
-
-							<!-- INICIO SECCION CORTE -->
-
 							<div class="fh5co-tab-content tab-content" data-tab-content="2">
 								<ul class="class-schedule">
 									<li class="text-center">
@@ -498,9 +509,6 @@
 									</li>
 								</ul>
 							</div>
-							<!-- FIN SECCION CORTE -->
-
-							<!-- INICIO SECCION EXCIBICION -->
 
 							<div class="fh5co-tab-content tab-content" data-tab-content="3">
 								<ul class="class-schedule">
@@ -734,116 +742,6 @@
 				</div>
 			</div>
 		</div>
-
-
-		<!-- <script>
-			document.getElementById('alertButton').addEventListener('click', function () {
-				swal({
-					title: "Impresión DTF Textil",
-					text: "Es un proceso de impresión directa sobre film. Se imprime en un film especial con tintas DTF...",
-					icon: "warning",
-					buttons: {
-						cancel: "Cancelar",
-						confirm: "Aceptar"
-					},
-					html: `
-						<div style="display: flex; justify-content: space-around; flex-wrap: wrap;">
-							<img src="images/gf1.jpg" alt="Imagen 1" style="width: 45%; margin: 5px;">
-							<img src="images/gf2.jpg" alt="Imagen 2" style="width: 45%; margin: 5px;">
-							<img src="images/gf3.jpg" alt="Imagen 3" style="width: 45%; margin: 5px;">
-							<img src="images/gf4.jpg" alt="Imagen 4" style="width: 45%; margin: 5px;">
-						</div>
-					`,
-					className: "custom-swal"
-				});
-			});
-		</script> -->
-
-
-		<!-- <div id="fh5co-pricing">
-		<div class="container">
-			<div class="row animate-box">
-				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-					<h2>Pricing Plan</h2>
-					<p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
-				</div>
-			</div>
-			<div class="row">
-				<div class="pricing">
-					<div class="col-md-3 animate-box">
-						<div class="price-box">
-							<h2 class="pricing-plan">Starter</h2>
-							<div class="price"><sup class="currency">$</sup>9<small>/month</small></div>
-							<ul class="classes">
-								<li>15 Cardio Classes</li>
-								<li class="color">10 Swimming Lesson</li>
-								<li>10 Yoga Classes</li>
-								<li class="color">20 Aerobics</li>
-								<li>10 Zumba Classes</li>
-								<li class="color">5 Massage</li>
-								<li>10 Body Building</li>
-							</ul>
-							<a href="#" class="btn btn-select-plan btn-sm">Select Plan</a>
-						</div>
-					</div>
-
-					<div class="col-md-3 animate-box">
-						<div class="price-box">
-							<h2 class="pricing-plan">Basic</h2>
-							<div class="price"><sup class="currency">$</sup>27<small>/month</small></div>
-							<ul class="classes">
-								<li>15 Cardio Classes</li>
-								<li class="color">10 Swimming Lesson</li>
-								<li>10 Yoga Classes</li>
-								<li class="color">20 Aerobics</li>
-								<li>10 Zumba Classes</li>
-								<li class="color">5 Massage</li>
-								<li>10 Body Building</li>
-							</ul>
-							<a href="#" class="btn btn-select-plan btn-sm">Select Plan</a>
-						</div>
-					</div>
-
-					<div class="col-md-3 animate-box">
-						<div class="price-box popular">
-							<h2 class="pricing-plan pricing-plan-offer">Pro <span>Best Offer</span></h2>
-							<div class="price"><sup class="currency">$</sup>74<small>/month</small></div>
-							<ul class="classes">
-								<li>15 Cardio Classes</li>
-								<li class="color">10 Swimming Lesson</li>
-								<li>10 Yoga Classes</li>
-								<li class="color">20 Aerobics</li>
-								<li>10 Zumba Classes</li>
-								<li class="color">5 Massage</li>
-								<li>10 Body Building</li>
-							</ul>
-							<a href="#" class="btn btn-select-plan btn-sm">Select Plan</a>
-						</div>
-					</div>
-
-					<div class="col-md-3 animate-box">
-						<div class="price-box">
-							<h2 class="pricing-plan">Unlimited</h2>
-							<div class="price"><sup class="currency">$</sup>140<small>/month</small></div>
-							<ul class="classes">
-								<li>15 Cardio Classes</li>
-								<li class="color">10 Swimming Lesson</li>
-								<li>10 Yoga Classes</li>
-								<li class="color">20 Aerobics</li>
-								<li>10 Zumba Classes</li>
-								<li class="color">5 Massage</li>
-								<li>10 Body Building</li>
-							</ul>
-							<a href="#" class="btn btn-select-plan btn-sm">Select Plan</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div> -->
-
-
-
 		<div id="fh5co-testimonial" class="fh5co-bg-section">
 			<div class="container">
 				<div class="row animate-box">
@@ -996,6 +894,8 @@
 	<script src="js/main.js"></script>
 	<!-- Modal pop-up -->
 	<script src="js/modal-popup.js"></script>
+	<!-- Sweet Alert 2 -->
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 
 

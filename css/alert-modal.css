@@ -1,29 +1,131 @@
+.modal {
+    width: 80%;
+    max-width: 800px; 
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.lists {
+    display: flex;
+    flex: 1; 
+    margin-left: 50px; 
+}
+
+.lists > div {
+    margin-right: 20px; 
+}
+
+/* Estilos para las listas */
+.lists ul,
+.lists ol {
+    list-style-type: none; 
+    padding: 0; 
+    margin: 0; 
+}
+
+.lists h4 {
+    font-size: 20px;
+    font-weight: bold; 
+    margin-bottom: 10px; 
+    color: #0f56d1; 
+}
+
+.lists li {
+    font-size: 16px; 
+    margin-bottom: 5px; 
+    color: #333; 
+}
+
 .carousel {
     display: flex;
-    overflow: hidden;
-    width: 100%;
-    /* Ancho completo del contenedor */
+    align-items: center;
+    justify-content: center; 
+    position: relative; 
+    flex: 1; /* Asegura que la imagen ocupe el espacio adecuado */
 }
 
 .carousel-inner {
     display: flex;
-    transition: transform 0.5s ease;
-    width: calc(100% * 4);
-    /* Total de 4 imágenes */
+    justify-content: center;
+    width: 100%; 
+}
+
+.title-sweet {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.text-black {
+    font-size: 17px;
 }
 
 .carousel img {
-    width: 300px;
-    /* Ancho de las imágenes */
-    height: 300px;
-    /* Alto de las imágenes */
+    width: auto;
+    max-width: 100%;
+    height: auto;
     border-radius: 5px;
-    /* Esquinas redondeadas */
+    display: none;
 }
 
-.text-green {
-    color: green;
-    /* Color verde para el texto */
-    text-align: center;
-    /* Centra el texto */
+.custom-button {
+    background-color: #0f56d1;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
 }
+    
+.custom-button:hover {
+    background-color: #304e82;    
+}
+
+.prev, .next {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+    padding: 10px;
+    position: absolute; 
+    top: 50%; 
+    transform: translateY(-50%);
+    z-index: 10;
+}
+
+.prev {
+    left: 10px; 
+}
+
+.next {
+    right: 10px; 
+}
+
+@media (max-width: 768px) {
+    .modal {
+        width: 95%;
+    }
+    .content {
+        flex-direction: column; 
+    }
+    .lists {
+        margin-right: 0; 
+        margin-bottom: 20px; 
+        flex-direction: column; 
+        width: 100%; 
+        margin-left: 0; 
+    }
+    .lists > div {
+        margin-right: 0; 
+        margin-bottom: 10px; 
+        width: 100%; 
+    }
+    .carousel {
+        margin-top: 0; 
+    }
+}
+
