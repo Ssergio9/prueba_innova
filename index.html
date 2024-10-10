@@ -68,9 +68,7 @@
 	<!--[if lt IE 9]>
 	<script src="js/respond.min.js"></script>
 	<![endif]-->
-	<!-- Sweet Alert - Description -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+
 </head>
 </head>
 
@@ -209,9 +207,9 @@
 					<div class="fh5co-tabs">
 						<ul class="fh5co-tab-nav">
 							<li class="active"><a href="#" data-tab="1"><span class="visible-xs">I.P.</span><span
-										class="hidden-xs">IMPRESION PRINT</span></a></li>
+										class="hidden-xs">LINEA IMPRESION</span></a></li>
 							<li><a href="#" data-tab="2"><span class="visible-xs">C.L.</span><span
-										class="hidden-xs">VALLAS PUBLICITARIAS</span></a></li>
+										class="hidden-xs">LINEA<br>VALLAS</span></a></li>
 							<li><a href="#" data-tab="3"><span class="visible-xs">E.X.</span><span
 										class="hidden-xs">AVISOS DE FACHADA</span></a></li>
 							<li><a href="#" data-tab="4"><span class="visible-xs">VLL.</span><span
@@ -224,11 +222,37 @@
 							<li><a href="#" data-tab="7"><span class="visible-xs">CRR.</span><span
 										class="hidden-xs">BANDERAS FLAGS</span></a></li>
 						</ul>
+						<script>
+							document.querySelectorAll('.fh5co-tab-nav a').forEach(link => {
+								link.addEventListener('click', (e) => {
+									e.preventDefault();
+									const tabId = link.getAttribute('data-tab');
+									localStorage.setItem('activeTab', tabId);
+									location.reload();
+								});
+							});
 
+							window.addEventListener('load', () => {
+								const activeTab = localStorage.getItem('activeTab') || '1';
+								document.querySelectorAll('.fh5co-tab-nav li').forEach(li => li.classList.remove('active'));
+								const activeLink = document.querySelector(`.fh5co-tab-nav a[data-tab="${activeTab}"]`);
+								if (activeLink) {
+									activeLink.parentElement.classList.add('active');
+								}
+								document.querySelectorAll('.fh5co-tab-content').forEach(content => {
+									content.classList.remove('active');
+								});
+								const activeContent = document.querySelector(`.fh5co-tab-content[data-tab-content="${activeTab}"]`);
+								if (activeContent) {
+									activeContent.classList.add('active');
+								}
+							});
+						</script>
 
 						<div class="fh5co-tab-content-wrap">
 							<div class="fh5co-tab-content tab-content active" data-tab-content="1">
 								<ul class="class-schedule">
+									<!--gran formato--------------------->
 									<li class="text-center">
 										<span><img src="images/hoarding.svg" class="img-responsive" alt=""></span>
 										<hr>
@@ -236,10 +260,7 @@
 										<small>Impresión digital gran formato alta calidad.</small>
 										<br>
 										<hr>
-										<p><button class="time" id="miBoton1">Más <i
-													class="icon-arrow-right"></i></button>
-										</p>
-
+										<button class="time" id="miBoton1">Más <i class="icon-arrow-right"></i></button>
 										<script>
 											document.getElementById('miBoton1').addEventListener('click', () => {
 												Swal.fire({
@@ -332,28 +353,59 @@
 												updateCarousel();
 											});
 										</script>
-
-										<!-- SWEET SIN LISTAS  -->
-										<!-- <script>
-											document.getElementById('miBoton1').addEventListener('click', () => {
+									</li>
+									<!--rigidos-------------------------->
+									<li class="text-center">
+										<span><img src="images/hoarding.svg" class="img-responsive" alt=""></span>
+										<hr>
+										<h4>RIGIDOS</h4>
+										<small>Impresión digital gran formato alta calidad.</small>
+										<br>
+										<hr>
+										<p><button class="time" id="miBoton2">Más <i
+													class="icon-arrow-right"></i></button>
+										</p>
+										<script>
+											document.getElementById('miBoton2').addEventListener('click', () => {
 												Swal.fire({
 													html: `
-													<h2 class="title-sweet">IMPRESIÓN DIGITAL GRAN FORMATO</h2>
-													<p class="text-black">La impresión en gran formato es una poderosa herramienta diseñada para adaptar la publicidad a amplias superficies.</p>
-													<hr>
-													<div class="content">
-														<div class="carousel">
-															<button class="prev" id="prevButton">&#10094;</button>
-															<div class="carousel-inner">
-																<img src="images/gf1.jpg" alt="Imagen 1">
-																<img src="images/gf2.jpg" alt="Imagen 2">
-																<img src="images/gf3.jpg" alt="Imagen 3">
-																<img src="images/gf4.jpg" alt="Imagen 4">
+														<h2 class="title-sweet">IMPRESIÓN SOBRE RÍGIDOS</h2>
+														<hr class="hr-sweet">
+														<p class="text-black">La impresión directa sobre materiales rígidos es un método que consiste en transferir una imagen o diseño directamente al sustrato, logrando un acabado duradero y vibrante en colores.</p>
+														<hr class="hr-sweet">
+														<div class="content">
+															<div class="lists">
+																<div>
+																	<h4>Area de<br> impresión</h4>
+																	<ul>
+																		<li>Hasta 1.5 Mts</li>
+																	</ul>
+																</div>
+																<div>
+																	<h4>Impresión <br> sobre</h4>
+																	<ul>
+																		<li>Acrílico</li>
+																		<li>Poliestireno</li>
+																		<li>Madera</li>
+																		<li>MDF</li>
+																		<li>Cartón</li>
+																		<li>Vidrio</li>
+																	</ul>
+																</div>
 															</div>
-															<button class="next" id="nextButton">&#10095;</button>
+															<div class="carousel">
+																<button class="prev" id="prevButton">&#10094;</button>
+																<div class="carousel-inner">
+																	<img src="images/gf1.jpg" alt="Imagen 1">
+																	<img src="images/gf2.jpg" alt="Imagen 2">
+																	<img src="images/gf3.jpg" alt="Imagen 3">
+																	<img src="images/gf4.jpg" alt="Imagen 4">
+																</div>
+																<button class="next" id="nextButton">&#10095;</button>
+															</div>
 														</div>
-													</div>
-												`,
+														<hr class="hr-sweet">
+													`,
 													confirmButtonText: 'Cerrar',
 													customClass: {
 														confirmButton: 'custom-button'
@@ -390,8 +442,399 @@
 
 												updateCarousel();
 											});
-										</script> -->
+										</script>
 									</li>
+									<!--sublimacion---------------------->
+									<li class="text-center">
+										<span><img src="images/hoarding.svg" class="img-responsive" alt=""></span>
+										<hr>
+										<h4>SUBLIMACIÓN</h4>
+										<small>Impresión digital gran formato alta calidad.</small>
+										<br>
+										<hr>
+										<p><button class="time" id="miBoton3">Más <i
+													class="icon-arrow-right"></i></button>
+										</p>
+										<script>
+											document.getElementById('miBoton3').addEventListener('click', () => {
+												Swal.fire({
+													html: `
+														<h2 class="title-sweet">IMPRESIÓN POR SUBLIMACIÓN</h2>
+														<hr class="hr-sweet">
+														<p class="text-black">La impresión por sublimación es un proceso que utiliza calor para transferir tintas especiales a materiales, principalmente poliéster. Este método produce imágenes vibrantes y duraderas, ya que la tinta se integra en el sustrato. Ideal para personalizar productos, es perfecto para crear artículos únicos y atractivos.</p>
+														<hr class="hr-sweet">
+														<div class="content">
+															<div class="lists">
+																<div>
+																	<h4>Aréa de<br> impresión</h4>
+																	<ul>
+																		<li>Hasta (1.5 Mts)</li>
+																	</ul>
+																</div>
+																<div>
+																	<h4>Impresión <br> sobre</h4>
+																	<ul>
+																		<li>Telones</li>
+																		<li>Tela para sombrillas</li>
+																		<li>Telas impermeables</li>
+																		<li>Sabanas / cubrelechos</li>
+																		<li>Uniformes deportivos</li>
+																		<li>Camisetas</li>
+																		<li>Banderas</li>
+																	</ul>
+																</div>
+																<div>
+																	<h4>Calidad de impresión</h4>
+																	<ul>
+																		<li>Tecnologia EPSON</li>
+																		<li>Resolución 1440 DFI</li>
+																	</ul>
+																</div>
+															</div>
+															<div class="carousel">
+																<button class="prev" id="prevButton">&#10094;</button>
+																<div class="carousel-inner">
+																	<img src="images/gf1.jpg" alt="Imagen 1">
+																	<img src="images/gf2.jpg" alt="Imagen 2">
+																	<img src="images/gf3.jpg" alt="Imagen 3">
+																	<img src="images/gf4.jpg" alt="Imagen 4">
+																</div>
+																<button class="next" id="nextButton">&#10095;</button>
+															</div>
+														</div>
+														<hr class="hr-sweet">
+													`,
+													confirmButtonText: 'Cerrar',
+													customClass: {
+														confirmButton: 'custom-button'
+													},
+													width: '80%',
+													padding: '1rem',
+													maxWidth: '95vw'
+												});
+
+												// Lógica para el carrusel manual
+												let currentIndex = 0;
+												const images = document.querySelectorAll('.carousel-inner img');
+												const totalImages = images.length;
+
+												document.getElementById('nextButton').addEventListener('click', () => {
+													if (currentIndex < totalImages - 1) {
+														currentIndex++;
+														updateCarousel();
+													}
+												});
+
+												document.getElementById('prevButton').addEventListener('click', () => {
+													if (currentIndex > 0) {
+														currentIndex--;
+														updateCarousel();
+													}
+												});
+
+												function updateCarousel() {
+													images.forEach((img, index) => {
+														img.style.display = index === currentIndex ? 'block' : 'none';
+													});
+												}
+
+												updateCarousel();
+											});
+										</script>
+									</li>
+									<!--offset/litografia---------------->
+									<li class="text-center">
+										<span><img src="images/hoarding.svg" class="img-responsive" alt=""></span>
+										<hr>
+										<h4>OFFSET/LITOGRAFIA</h4>
+										<small>Impresión digital gran formato alta calidad.</small>
+										<br>
+										<hr>
+										<p><button class="time" id="miBoton4">Más <i
+													class="icon-arrow-right"></i></button>
+										</p>
+										<script>
+											document.getElementById('miBoton4').addEventListener('click', () => {
+												Swal.fire({
+													html: `
+														<h2 class="title-sweet">IMPRESIÓN OFF-SET / LITOGRAFÍA</h2>
+														<hr class="hr-sweet">
+														<p class="text-black">La impresión offset, o litografía, utiliza planchas para transferir imágenes y textos a papel. Ofrece alta calidad, es eficiente en grandes tiradas y permite gran versatilidad en materiales, siendo ideal para trabajos que requieren precisión.</p>
+														<hr class="hr-sweet">
+														<div class="content">
+															<div class="lists">
+																<div>
+																	<h4>Aréa de<br> impresión</h4>
+																	<ul>
+																		<li>Pliego (100 x 70 cms)</li>
+																		<li>1/2 Pliego (70 x 50 cms)</li>
+																		<li>1/4 Pliego (50 x 35 cms)</li>
+																	</ul>
+																</div>
+																<div>
+																	<h4>Impresión <br> sobre</h4>
+																	<ul>
+																		<li>Papel bond</li>
+																		<li>Propalcote</li>
+																		<li>Periódico</li>
+																		<li>Cartulinas</li>
+																		<li>Papeles especiales</li>
+																	</ul>
+																</div>
+																<div>
+																	<h4>Stock<br><br></h4>
+																	<ul>
+																		<li>Volantes</li>
+																		<li>Catalogos</li>
+																		<li>Revistas</li>
+																		<li>Empaques</li>
+																		<li>Membretes</li>
+																	</ul>
+																</div>
+															</div>
+															<div class="carousel">
+																<button class="prev" id="prevButton">&#10094;</button>
+																<div class="carousel-inner">
+																	<img src="images/gf1.jpg" alt="Imagen 1">
+																	<img src="images/gf2.jpg" alt="Imagen 2">
+																	<img src="images/gf3.jpg" alt="Imagen 3">
+																	<img src="images/gf4.jpg" alt="Imagen 4">
+																</div>
+																<button class="next" id="nextButton">&#10095;</button>
+															</div>
+														</div>
+														<hr class="hr-sweet">
+													`,
+													confirmButtonText: 'Cerrar',
+													customClass: {
+														confirmButton: 'custom-button'
+													},
+													width: '80%',
+													padding: '1rem',
+													maxWidth: '95vw'
+												});
+
+												// Lógica para el carrusel manual
+												let currentIndex = 0;
+												const images = document.querySelectorAll('.carousel-inner img');
+												const totalImages = images.length;
+
+												document.getElementById('nextButton').addEventListener('click', () => {
+													if (currentIndex < totalImages - 1) {
+														currentIndex++;
+														updateCarousel();
+													}
+												});
+
+												document.getElementById('prevButton').addEventListener('click', () => {
+													if (currentIndex > 0) {
+														currentIndex--;
+														updateCarousel();
+													}
+												});
+
+												function updateCarousel() {
+													images.forEach((img, index) => {
+														img.style.display = index === currentIndex ? 'block' : 'none';
+													});
+												}
+
+												updateCarousel();
+											});
+										</script>
+									</li>
+									<!--laser---------------------------->
+									<li class="text-center">
+										<span><img src="images/hoarding.svg" class="img-responsive" alt=""></span>
+										<hr>
+										<h4>LASER</h4>
+										<small>Impresión digital gran formato alta calidad.</small>
+										<br>
+										<hr>
+										<p><button class="time" id="miBoton5">Más <i
+													class="icon-arrow-right"></i></button>
+										</p>
+										<script>
+											document.getElementById('miBoton5').addEventListener('click', () => {
+												Swal.fire({
+													html: `
+														<h2 class="title-sweet">IMPRESIÓN LÁSER</h2>
+														<hr class="hr-sweet">
+														<p class="text-black">La impresión por sublimación es un proceso que utiliza calor para transferir tintas especiales a materiales, principalmente poliéster. Este método produce imágenes vibrantes y duraderas, ya que la tinta se integra en el sustrato. Ideal para personalizar productos, es perfecto para crear artículos únicos y atractivos.</p>
+														<hr class="hr-sweet">
+														<div class="content">
+															<div class="lists">
+																<div>
+																	<h4>Stock<br><br></h4>
+																	<ul>
+																		<li>Tarjetas de presentación</li>
+																		<li>Volantes</li>
+																		<li>Brochures</li>
+																		<li>Carpetas</li>
+																		<li>Afiches</li>
+																		<li>Revistas</li>
+																		<li>Catálogos</li>
+																	</ul>
+																</div>
+																<div>
+																	<h4>Area de <br> impresión</h4>
+																	<ul>
+																		<li>Medida de (45X30cms)</li>
+																	</ul>
+																</div>
+															</div>
+															<div class="carousel">
+																<button class="prev" id="prevButton">&#10094;</button>
+																<div class="carousel-inner">
+																	<img src="images/gf1.jpg" alt="Imagen 1">
+																	<img src="images/gf2.jpg" alt="Imagen 2">
+																	<img src="images/gf3.jpg" alt="Imagen 3">
+																	<img src="images/gf4.jpg" alt="Imagen 4">
+																</div>
+																<button class="next" id="nextButton">&#10095;</button>
+															</div>
+														</div>
+														<hr class="hr-sweet">
+													`,
+													confirmButtonText: 'Cerrar',
+													customClass: {
+														confirmButton: 'custom-button'
+													},
+													width: '80%',
+													padding: '1rem',
+													maxWidth: '95vw'
+												});
+
+												// Lógica para el carrusel manual
+												let currentIndex = 0;
+												const images = document.querySelectorAll('.carousel-inner img');
+												const totalImages = images.length;
+
+												document.getElementById('nextButton').addEventListener('click', () => {
+													if (currentIndex < totalImages - 1) {
+														currentIndex++;
+														updateCarousel();
+													}
+												});
+
+												document.getElementById('prevButton').addEventListener('click', () => {
+													if (currentIndex > 0) {
+														currentIndex--;
+														updateCarousel();
+													}
+												});
+
+												function updateCarousel() {
+													images.forEach((img, index) => {
+														img.style.display = index === currentIndex ? 'block' : 'none';
+													});
+												}
+
+												updateCarousel();
+											});
+										</script>
+									</li>
+									<!--screen--------------------------->
+									<li class="text-center">
+										<span><img src="images/hoarding.svg" class="img-responsive" alt=""></span>
+										<hr>
+										<h4>SCREEN</h4>
+										<small>Impresión digital gran formato alta calidad.</small>
+										<br>
+										<hr>
+										<p><button class="time" id="miBoton6">Más <i
+													class="icon-arrow-right"></i></button>
+										</p>
+										<script>
+											document.getElementById('miBoton6').addEventListener('click', () => {
+												Swal.fire({
+													html: `
+														<h2 class="title-sweet">IMPRESIÓN SCREEN</h2>
+														<hr class="hr-sweet">
+														<p class="text-black">La impresión serigráfica, o impresión screen, es un método que utiliza una malla para transferir tinta a diferentes sustratos, como papel y tela. Es conocida por su capacidad para producir colores vibrantes y duraderos. Ideal para grandes tiradas, permite imprimir en una variedad de formatos y materiales, ofreciendo resultados de alta calidad.</p>
+														<hr class="hr-sweet">
+														<div class="content">
+															<div class="lists">
+																<div>
+																	<h4>Stock<br><br></h4>
+																	<ul>
+																		<li>Camisetas</li>
+																		<li>Gorras</li>
+																		<li>Sombrillas</li>
+																		<li>Cartones</li>
+																		<li>Cuero</li>
+																		<li>Plástico</li>
+																		<li>Metal</li>
+																	</ul>
+																</div>
+																<div>
+																	<h4>Impresión <br> sobre</h4>
+																	<ul>
+																		<li>Telas</li>
+																		<li>Laminas</li>
+																		<li>Papeles</li>
+																		<li>Plástico</li>
+																	</ul>
+																</div>
+																<div>
+																	<h4>Area de impresión</h4>
+																	<ul>
+																		<li>Medidas de (40 X 30cms)</li>
+																	</ul>
+																</div>
+															</div>
+															<div class="carousel">
+																<button class="prev" id="prevButton">&#10094;</button>
+																<div class="carousel-inner">
+																	<img src="images/gf1.jpg" alt="Imagen 1">
+																	<img src="images/gf2.jpg" alt="Imagen 2">
+																	<img src="images/gf3.jpg" alt="Imagen 3">
+																	<img src="images/gf4.jpg" alt="Imagen 4">
+																</div>
+																<button class="next" id="nextButton">&#10095;</button>
+															</div>
+														</div>
+														<hr class="hr-sweet">
+													`,
+													confirmButtonText: 'Cerrar',
+													customClass: {
+														confirmButton: 'custom-button'
+													},
+													width: '80%',
+													padding: '1rem',
+													maxWidth: '95vw'
+												});
+
+												// Lógica para el carrusel manual
+												let currentIndex = 0;
+												const images = document.querySelectorAll('.carousel-inner img');
+												const totalImages = images.length;
+
+												document.getElementById('nextButton').addEventListener('click', () => {
+													if (currentIndex < totalImages - 1) {
+														currentIndex++;
+														updateCarousel();
+													}
+												});
+
+												document.getElementById('prevButton').addEventListener('click', () => {
+													if (currentIndex > 0) {
+														currentIndex--;
+														updateCarousel();
+													}
+												});
+
+												function updateCarousel() {
+													images.forEach((img, index) => {
+														img.style.display = index === currentIndex ? 'block' : 'none';
+													});
+												}
+
+												updateCarousel();
+											});
+										</script>
+									</li>
+									<!--textil--------------------------->
 									<li class="text-center">
 										<span><img src="images/textile.svg" class="img-responsive" alt=""></span>
 										<hr>
@@ -399,11 +842,11 @@
 										<small>Impresión textil gran formato personalizada.</small>
 										<br>
 										<hr>
-										<p><button class="time" id="miBoton2">Más <i
+										<p><button class="time" id="miBoton7">Más <i
 													class="icon-arrow-right"></i></button>
 										</p>
 										<script>
-											document.getElementById('miBoton2').addEventListener('click', () => {
+											document.getElementById('miBoton7').addEventListener('click', () => {
 												Swal.fire({
 													html: `
 														<h2 class="title-sweet">IMPRESION DTF TEXTIL</h2>
@@ -481,303 +924,654 @@
 											});
 										</script>
 									</li>
+									<!--dtf uv--------------------------->
 									<li class="text-center">
-										<span><img src="images/lithography.svg" class="img-responsive" alt=""></span>
-										<hr>
-										<h4>OFFSET-LITOGRAFIA</h4>
-										<small>Impresión offset alta resolución profesional.</small>
-										<br>
-										<hr>
-										<p><a href="#" class="time" id="miBoton3">Más <i class="icon-arrow-right"></i></a></p>
-										<script>
-											document.getElementById('miBoton3').addEventListener('click', () => {
-												Swal.fire({
-													html: `
-														<h2 class="title-sweet">IMPRESIÓN OFF-SET / LITOGRAFÍA</h2>
-														<hr class="hr-sweet">
-														<p class="text-black">La impresión offset, o litografía, utiliza planchas para transferir imágenes a papel. Ofrece alta calidad, es eficiente para grandes tiradas y permite el uso de tintas ecológicas. Ideal para trabajos que requieren precisión y detalle.</p>
-														<hr class="hr-sweet">
-														<div class="content">
-															<div class="lists">
-																<div>
-																	<h4>Area de <br> impresión</h4>
-																	<ul>
-																		<li>Pliego<br>(100 x 70 cms)</li>
-																		<li>1/2 Pliego<br>(70 x 50 cms)</li>
-																		<li>1/4 Pliego<br>(50 x 35 cms)</li>
-																	</ul>
-																</div>
-																<div>
-																	<h4>Impresión <br> sobre</h4>
-																	<ul>
-																		<li>Papel bond</li>
-																		<li>Propalcote</li>
-																		<li>Periódico</li>
-																		<li>Cartulinas</li>
-																		<li>Papeles especiales</li>
-																	</ul>
-																</div>
-																<div>
-																	<h4>Stock<br><br></h4>
-																	<ul>
-																		<li>Volantes</li>
-																		<li>Tarjetas</li>
-																		<li>Empaques</li>
-																		<li>Revistas</li>
-																		<li>Catalogos</li>
-																	</ul>
-																</div>
-															</div>
-															<div class="carousel">
-																<button class="prev" id="prevButton">&#10094;</button>
-																<div class="carousel-inner">
-																	<img src="images/gf1.jpg" alt="Imagen 1">
-																	<img src="images/gf2.jpg" alt="Imagen 2">
-																	<img src="images/gf3.jpg" alt="Imagen 3">
-																	<img src="images/gf4.jpg" alt="Imagen 4">
-																</div>
-																<button class="next" id="nextButton">&#10095;</button>
-															</div>
-														</div>
-														<hr class="hr-sweet">
-													`,
-													confirmButtonText: 'Cerrar',
-													customClass: {
-														confirmButton: 'custom-button'
-													},
-													width: '80%',
-													padding: '1rem',
-													maxWidth: '95vw'
-												});
-
-												// Lógica para el carrusel manual
-												let currentIndex = 0;
-												const images = document.querySelectorAll('.carousel-inner img');
-												const totalImages = images.length;
-
-												document.getElementById('nextButton').addEventListener('click', () => {
-													if (currentIndex < totalImages - 1) {
-														currentIndex++;
-														updateCarousel();
-													}
-												});
-
-												document.getElementById('prevButton').addEventListener('click', () => {
-													if (currentIndex > 0) {
-														currentIndex--;
-														updateCarousel();
-													}
-												});
-
-												function updateCarousel() {
-													images.forEach((img, index) => {
-														img.style.display = index === currentIndex ? 'block' : 'none';
-													});
-												}
-
-												updateCarousel();
-											});
-										</script>
-									</li>
-									<li class="text-center">
-										<span><img src="images/impLaser.svg" class="img-responsive" alt=""></span>
-										<hr>
-										<h4>LASER</h4>
-										<small>Impresión láser precisión rápida y nítida.</small>
-										<br>
-										<hr>
-										<p><a href="#" class="time" id="miBoton4">Más <i class="icon-arrow-right"></i></a></p>
-										<script>
-											document.getElementById('miBoton4').addEventListener('click', () => {
-												Swal.fire({
-													html: `
-														<h2 class="title-sweet">IMPRESIÓN LÁSER</h2>
-														<hr class="hr-sweet">
-														<p class="text-black">La impresión offset, o litografía, utiliza planchas para transferir imágenes a papel. Ofrece alta calidad, es eficiente para grandes tiradas y permite el uso de tintas ecológicas. Ideal para trabajos que requieren precisión y detalle.</p>
-														<hr class="hr-sweet">
-														<div class="content">
-															<div class="lists">
-																<div>
-																	<h4>Area de <br> impresión</h4>
-																	<ul>
-																		<li>Medida de<br>(45X30cms)</li>
-																	</ul>
-																</div>
-																<div>
-																	<h4>Stock<br><br></h4>
-																	<ul>
-																		<li>Tarjetas de presentación</li>
-																		<li>Volantes</li>
-																		<li>Brochures</li>
-																		<li>Carpetas</li>
-																		<li>Afiches</li>
-																		<li>Revistas</li>
-																		<li>Catálogos</li>
-																	</ul>
-																</div>
-															</div>
-															<div class="carousel">
-																<button class="prev" id="prevButton">&#10094;</button>
-																<div class="carousel-inner">
-																	<img src="images/gf1.jpg" alt="Imagen 1">
-																	<img src="images/gf2.jpg" alt="Imagen 2">
-																	<img src="images/gf3.jpg" alt="Imagen 3">
-																	<img src="images/gf4.jpg" alt="Imagen 4">
-																</div>
-																<button class="next" id="nextButton">&#10095;</button>
-															</div>
-														</div>
-														<hr class="hr-sweet">
-													`,
-													confirmButtonText: 'Cerrar',
-													customClass: {
-														confirmButton: 'custom-button'
-													},
-													width: '80%',
-													padding: '1rem',
-													maxWidth: '95vw'
-												});
-
-												// Lógica para el carrusel manual
-												let currentIndex = 0;
-												const images = document.querySelectorAll('.carousel-inner img');
-												const totalImages = images.length;
-
-												document.getElementById('nextButton').addEventListener('click', () => {
-													if (currentIndex < totalImages - 1) {
-														currentIndex++;
-														updateCarousel();
-													}
-												});
-
-												document.getElementById('prevButton').addEventListener('click', () => {
-													if (currentIndex > 0) {
-														currentIndex--;
-														updateCarousel();
-													}
-												});
-
-												function updateCarousel() {
-													images.forEach((img, index) => {
-														img.style.display = index === currentIndex ? 'block' : 'none';
-													});
-												}
-
-												updateCarousel();
-											});
-										</script>
-									</li>
-									<li class="text-center">
-										<span><img src="images/plotter.svg" class="img-responsive" alt=""></span>
-										<hr>
-										<h4>SUBLIMACION</h4>
-										<small>Impresión plotter gran formato precisa y rápida.</small>
-										<br>
-										<hr>
-										<p><a href="#" class="time">Más <i class="icon-arrow-right"></i></a></p>
-									</li>
-									<li class="text-center">
-										<span><img src="images/screen.svg" class="img-responsive" alt=""></span>
-										<hr>
-										<h4>SCREEN</h4>
-										<small>Impresión serigráfica alta durabilidad y definición.</small>
-										<br>
-										<hr>
-										<p><a href="#" class="time">Más <i class="icon-arrow-right"></i></a></p>
-									</li>
-									<li class="text-center">
-										<span><img src="images/screen.svg" class="img-responsive" alt=""></span>
-										<hr>
-										<h4>RIGIDO</h4>
-										<small>Impresión serigráfica alta durabilidad y definición.</small>
-										<br>
-										<hr>
-										<p><a href="#" class="time">Más <i class="icon-arrow-right"></i></a></p>
-									</li>
-									<li class="text-center">
-										<span><img src="images/screen.svg" class="img-responsive" alt=""></span>
+										<span><img src="images/hoarding.svg" class="img-responsive" alt=""></span>
 										<hr>
 										<h4>DTF UV</h4>
-										<small>Impresión serigráfica alta durabilidad y definición.</small>
+										<small>Impresión digital gran formato alta calidad.</small>
 										<br>
 										<hr>
-										<p><a href="#" class="time">Más <i class="icon-arrow-right"></i></a></p>
+										<p><button class="time" id="miBoton8">Más <i
+													class="icon-arrow-right"></i></button>
+										</p>
+										<script>
+											document.getElementById('miBoton8').addEventListener('click', () => {
+												Swal.fire({
+													html: `
+														<h2 class="title-sweet">IMPRESIÓN DTF UV</h2>
+														<hr class="hr-sweet">
+														<p class="text-black">La impresión DTF UV (Direct to Film UV) utiliza tintas UV para imprimir imágenes en una película, que se transfiere a diversos sustratos. Ofrece colores vivos y detalles nítidos, con impresiones duraderas y resistentes al desgaste, ideal para personalización a gran escala.</p>
+														<hr class="hr-sweet">
+														<div class="content">
+															<div class="lists">
+																<div>
+																	<h4>Stock<br><br></h4>
+																	<ul>
+																		<li>Stickers</li>
+																		<li>Calcomanias</li>
+																		<li>Figuras decorativas</li>
+																		<li>Señalización interior y exterior</li>
+																		<li>Decoración sobre cualquier superficie</li>
+																	</ul>
+																</div>
+																<div>
+																	<h4>Area de impresión</h4>
+																	<ul>
+																		<li>Medidas hasta<br> (59 cm)</li>
+																	</ul>
+																</div>
+															</div>
+															<div class="carousel">
+																<button class="prev" id="prevButton">&#10094;</button>
+																<div class="carousel-inner">
+																	<img src="images/gf1.jpg" alt="Imagen 1">
+																	<img src="images/gf2.jpg" alt="Imagen 2">
+																	<img src="images/gf3.jpg" alt="Imagen 3">
+																	<img src="images/gf4.jpg" alt="Imagen 4">
+																</div>
+																<button class="next" id="nextButton">&#10095;</button>
+															</div>
+														</div>
+														<hr class="hr-sweet">
+													`,
+													confirmButtonText: 'Cerrar',
+													customClass: {
+														confirmButton: 'custom-button'
+													},
+													width: '80%',
+													padding: '1rem',
+													maxWidth: '95vw'
+												});
+
+												// Lógica para el carrusel manual
+												let currentIndex = 0;
+												const images = document.querySelectorAll('.carousel-inner img');
+												const totalImages = images.length;
+
+												document.getElementById('nextButton').addEventListener('click', () => {
+													if (currentIndex < totalImages - 1) {
+														currentIndex++;
+														updateCarousel();
+													}
+												});
+
+												document.getElementById('prevButton').addEventListener('click', () => {
+													if (currentIndex > 0) {
+														currentIndex--;
+														updateCarousel();
+													}
+												});
+
+												function updateCarousel() {
+													images.forEach((img, index) => {
+														img.style.display = index === currentIndex ? 'block' : 'none';
+													});
+												}
+
+												updateCarousel();
+											});
+										</script>
 									</li>
+									<!----------------------------------->
 								</ul>
 							</div>
 							<div class="fh5co-tab-content tab-content" data-tab-content="2">
-								<ul class="class-schedule">
+								<ul class="class-schedule active">
+									<!--metalicas tubulares--------------------->
 									<li class="text-center">
-										<span><img src="images/cLaser.svg" class="img-responsive" alt=""></span>
+										<span><img src="images/hoarding.svg" class="img-responsive" alt=""></span>
 										<hr>
 										<h4>METALICAS TUBULARES</h4>
-										<small>Corte láser precisión extrema y versatilidad.</small>
+										<small>Impresión digital gran formato alta calidad.</small>
 										<br>
 										<hr>
-										<p><a href="#" class="time">Más <i class="icon-arrow-right"></i></a></p>
+										<p><button class="time" id="miBoton9">Más <i
+													class="icon-arrow-right"></i></button>
+										</p>
+										<script>
+											document.getElementById('miBoton9').addEventListener('click', () => {
+												Swal.fire({
+													html: `
+														<h2 class="title-sweet">VALLAS METÁLICAS TUBULARES</h2>
+														<hr class="hr-sweet">
+														<p class="text-black">Las vallas metálicas tubulares son estructuras robustas y versátiles que permiten alcanzar alturas de hasta 35 metros. Con módulos publicitarios de hasta 12 x 4 metros, son ideales para maximizar la visibilidad y el impacto de la comunicación visual en espacios abiertos.</p>
+														<hr class="hr-sweet">
+														<div class="content">
+															<div class="lists">
+																<div>
+																	<h4>Tipos de <br>Vallas</h4>
+																	<ul>
+																		<li>Tubulares a 1 cara</li>
+																		<li>Doble cara en V</li>
+																		<li>Doble cara con estructura sencilla</li>
+																	</ul>
+																</div>
+																<div>
+																	<h4>Descripción</h4>
+																	<ul>
+																		<li>Impresión digital en lona (Banner)</li>
+																		<li>Iluminación con reflectores.</li>
+																		<li>Asesoria en registro de valla ante la entidad competente.</li>
+																		<li>Garantía posventa.</li>
+																	</ul>
+																</div>
+																<div>
+																	<h4>Ficha tecnica<br>de materiales</h4>
+																	<ul>
+																		<li>Estudio de suelos y estructural</li>
+																		<li>Cimentación en concreto de 3.500PSI</li>
+																		<li>Mástil en tubería petrolera en acero al carbón desde 18” hasta 30”</li>
+																		<li>Módulo publicitario en lamina galvanizada y cerchas metálicas.</li>
+																	</ul>
+																</div>
+															</div>
+															<div class="carousel">
+																<button class="prev" id="prevButton">&#10094;</button>
+																<div class="carousel-inner">
+																	<img src="images/gf1.jpg" alt="Imagen 1">
+																	<img src="images/gf2.jpg" alt="Imagen 2">
+																	<img src="images/gf3.jpg" alt="Imagen 3">
+																	<img src="images/gf4.jpg" alt="Imagen 4">
+																</div>
+																<button class="next" id="nextButton">&#10095;</button>
+															</div>
+														</div>
+														<hr class="hr-sweet">
+													`,
+													confirmButtonText: 'Cerrar',
+													customClass: {
+														confirmButton: 'custom-button'
+													},
+													width: '80%',
+													padding: '1rem',
+													maxWidth: '95vw'
+												});
+
+												// Lógica para el carrusel manual
+												let currentIndex = 0;
+												const images = document.querySelectorAll('.carousel-inner img');
+												const totalImages = images.length;
+
+												document.getElementById('nextButton').addEventListener('click', () => {
+													if (currentIndex < totalImages - 1) {
+														currentIndex++;
+														updateCarousel();
+													}
+												});
+
+												document.getElementById('prevButton').addEventListener('click', () => {
+													if (currentIndex > 0) {
+														currentIndex--;
+														updateCarousel();
+													}
+												});
+
+												function updateCarousel() {
+													images.forEach((img, index) => {
+														img.style.display = index === currentIndex ? 'block' : 'none';
+													});
+												}
+
+												updateCarousel();
+											});
+										</script>
 									</li>
+									<!--metalicas convencionales---------------->
 									<li class="text-center">
-										<span><img src="images/graLaser.svg" class="img-responsive" alt=""></span>
+										<span><img src="images/hoarding.svg" class="img-responsive" alt=""></span>
 										<hr>
-										<h4>CONVENCIONALES CON TABLERO EN LAMINA</h4>
-										<small>Grabado láser detalles finos y personalizados.</small>
+										<h4>CONVENCIONALES METALICAS</h4>
+										<small>Impresión digital gran formato alta calidad.</small>
 										<br>
 										<hr>
-										<p><a href="#" class="time">Más <i class="icon-arrow-right"></i></a></p>
+										<p><button class="time" id="miBoton10">Más <i
+													class="icon-arrow-right"></i></button>
+										</p>
+										<script>
+											document.getElementById('miBoton10').addEventListener('click', () => {
+												Swal.fire({
+													html: `
+														<h2 class="title-sweet">VALLAS CONVENCIONALES METÁLICAS</h2>
+														<hr class="hr-sweet">
+														<p class="text-black">Las vallas convencionales metálicas son estructuras resistentes que permiten alcanzar alturas de hasta 12 metros. Con módulos publicitarios de hasta 12 x 4 metros, son perfectas para maximizar la visibilidad y el impacto de la comunicación en diversas ubicaciones.</p>
+														<hr class="hr-sweet">
+														<div class="content">
+															<div class="lists">
+																<div>
+																	<h4>Tipo de<br>valla</h4>
+																	<ul>
+																		<li>Modulares a 1 cara</li>
+																		<li>Modulares a 2 caras</li>
+																		<li>Modulares en V</li>
+																	</ul>
+																</div>
+																<div>
+																	<h4>Ficha técnica<br>de materiales</h4>
+																	<ul>
+																		<li>Cimentación en concreto de 3.500PSI</li>
+																		<li>Parales en Tubo, cerchas en angulo de 1 1/2</li>
+																		<li>Modulo Publicitario en bastidor metálico o lamina galvanizada con impresión digital en lona (Banner) 13 onzas</li>
+																		<li>Asesoria en registro de valla ante la entidad competente</li>
+																		<li>Garantía posventa</li>																		
+																	</ul>
+																</div>
+															</div>
+															<div class="carousel">
+																<button class="prev" id="prevButton">&#10094;</button>
+																<div class="carousel-inner">
+																	<img src="images/gf1.jpg" alt="Imagen 1">
+																	<img src="images/gf2.jpg" alt="Imagen 2">
+																	<img src="images/gf3.jpg" alt="Imagen 3">
+																	<img src="images/gf4.jpg" alt="Imagen 4">
+																</div>
+																<button class="next" id="nextButton">&#10095;</button>
+															</div>
+														</div>
+														<hr class="hr-sweet">
+													`,
+													confirmButtonText: 'Cerrar',
+													customClass: {
+														confirmButton: 'custom-button'
+													},
+													width: '80%',
+													padding: '1rem',
+													maxWidth: '95vw'
+												});
+
+												// Lógica para el carrusel manual
+												let currentIndex = 0;
+												const images = document.querySelectorAll('.carousel-inner img');
+												const totalImages = images.length;
+
+												document.getElementById('nextButton').addEventListener('click', () => {
+													if (currentIndex < totalImages - 1) {
+														currentIndex++;
+														updateCarousel();
+													}
+												});
+
+												document.getElementById('prevButton').addEventListener('click', () => {
+													if (currentIndex > 0) {
+														currentIndex--;
+														updateCarousel();
+													}
+												});
+
+												function updateCarousel() {
+													images.forEach((img, index) => {
+														img.style.display = index === currentIndex ? 'block' : 'none';
+													});
+												}
+
+												updateCarousel();
+											});
+										</script>
 									</li>
+									<!--contencion------------------------------>
 									<li class="text-center">
-										<span><img src="images/graLaser.svg" class="img-responsive" alt=""></span>
+										<span><img src="images/hoarding.svg" class="img-responsive" alt=""></span>
 										<hr>
-										<h4>METALICAS CONVENCIONALES CON BASTIDOR</h4>
-										<small>Grabado láser detalles finos y personalizados.</small>
+										<h4>CONTENCION</h4>
+										<small>Impresión digital gran formato alta calidad.</small>
 										<br>
 										<hr>
-										<p><a href="#" class="time">Más <i class="icon-arrow-right"></i></a></p>
+										<button class="time" id="miBoton11">Más <i
+												class="icon-arrow-right"></i></button>
+										<script>
+											document.getElementById('miBoton11').addEventListener('click', () => {
+												Swal.fire({
+													html: `
+														<h2 class="title-sweet">VALLAS DE CONTENCIÓN</h2>
+														<hr class="hr-sweet">
+														<p class="text-black">Las vallas de contención están fabricadas en lámina galvanizada, con impresión en vinilo laminado y una estructura de tubo de hierro redondo o cuadrado. Son ideales para delimitar espacios y brindar seguridad, combinando durabilidad y estética.</p>
+														<hr class="hr-sweet">
+														<div class="content">
+															<div class="lists">
+																<div>
+																	<h4>Medida<br>Estándar</h4>
+																	<ul>
+																		<li>Mediana: 220x150cms</li>
+																		<li>Grande: 270x170cms</li>
+																	</ul>
+																</div>
+																<div>
+																	<h4>Ficha técnica<br>de materiales</h4>
+																	<ul>
+																		<li>Modulo Publicitario en láminas galavanizadas</li>
+																		<li>Impresión digital en vinilo laminado</li>
+																		<li>Pintura electrostática</li>
+																		<li>Estructura en hierro tubo redondo o cuadrado</li>
+																		<li>Garantía Posventa</li>
+																	</ul>
+																</div>
+															</div>
+															<div class="carousel">
+																<button class="prev" id="prevButton">&#10094;</button>
+																<div class="carousel-inner">
+																	<img src="images/gf1.jpg" alt="Imagen 1">
+																	<img src="images/gf2.jpg" alt="Imagen 2">
+																	<img src="images/gf3.jpg" alt="Imagen 3">
+																	<img src="images/gf4.jpg" alt="Imagen 4">
+																</div>
+																<button class="next" id="nextButton">&#10095;</button>
+															</div>
+														</div>
+														<hr class="hr-sweet">
+													`,
+													confirmButtonText: 'Cerrar',
+													customClass: {
+														confirmButton: 'custom-button'
+													},
+													width: '80%',
+													padding: '1rem',
+													maxWidth: '95vw'
+												});
+
+												// Lógica para el carrusel manual
+												let currentIndex = 0;
+												const images = document.querySelectorAll('.carousel-inner img');
+												const totalImages = images.length;
+
+												document.getElementById('nextButton').addEventListener('click', () => {
+													if (currentIndex < totalImages - 1) {
+														currentIndex++;
+														updateCarousel();
+													}
+												});
+
+												document.getElementById('prevButton').addEventListener('click', () => {
+													if (currentIndex > 0) {
+														currentIndex--;
+														updateCarousel();
+													}
+												});
+
+												function updateCarousel() {
+													images.forEach((img, index) => {
+														img.style.display = index === currentIndex ? 'block' : 'none';
+													});
+												}
+
+												updateCarousel();
+											});
+										</script>
 									</li>
+									<!--led------------------------------------->
 									<li class="text-center">
-										<span><img src="images/graLaser.svg" class="img-responsive" alt=""></span>
-										<hr>
-										<h4>VALLAS DE CONTENCION</h4>
-										<small>Grabado láser detalles finos y personalizados.</small>
-										<br>
-										<hr>
-										<p><a href="#" class="time">Más <i class="icon-arrow-right"></i></a></p>
-									</li>
-									<li class="text-center">
-										<span><img src="images/graLaser.svg" class="img-responsive" alt=""></span>
+										<span><img src="images/hoarding.svg" class="img-responsive" alt=""></span>
 										<hr>
 										<h4>VALLAS LED</h4>
-										<small>Grabado láser detalles finos y personalizados.</small>
+										<small>Impresión digital gran formato alta calidad.</small>
 										<br>
 										<hr>
-										<p><a href="#" class="time">Más <i class="icon-arrow-right"></i></a></p>
+										<p><button class="time" id="miBoton12">Más <i
+													class="icon-arrow-right"></i></button>
+										</p>
+										<script>
+											document.getElementById('miBoton12').addEventListener('click', () => {
+												Swal.fire({
+													html: `
+														<h2 class="title-sweet">VALLAS LED</h2>
+														<hr class="hr-sweet">
+														<p class="text-black">Este tipo de vallas LED está compuesto y trabajado bajo las siguientes especialidades: componente civil e ingeniería, componente eléctrico y componente de conectividad con fibra óptica.</p>
+														<hr class="hr-sweet">
+														<div class="content">
+															<div class="lists">
+																<div>
+																	<h4>Ficha Tecnica</h4>
+																	<ul>
+																		<li>Módulos LED de 100 cm X 100 cm</li>
+																		<li>Panel de video LED (P2 / P2.5 / P2.6 / P2.9 / P3 / P3.91 / P4 / P4.81)</li>
+																	</ul>
+																</div>
+															</div>
+															<div class="carousel">
+																<button class="prev" id="prevButton">&#10094;</button>
+																<div class="carousel-inner">
+																	<img src="images/gf1.jpg" alt="Imagen 1">
+																	<img src="images/gf2.jpg" alt="Imagen 2">
+																	<img src="images/gf3.jpg" alt="Imagen 3">
+																	<img src="images/gf4.jpg" alt="Imagen 4">
+																</div>
+																<button class="next" id="nextButton">&#10095;</button>
+															</div>
+														</div>
+														<hr class="hr-sweet">
+													`,
+													confirmButtonText: 'Cerrar',
+													customClass: {
+														confirmButton: 'custom-button'
+													},
+													width: '80%',
+													padding: '1rem',
+													maxWidth: '95vw'
+												});
+
+												// Lógica para el carrusel manual
+												let currentIndex = 0;
+												const images = document.querySelectorAll('.carousel-inner img');
+												const totalImages = images.length;
+
+												document.getElementById('nextButton').addEventListener('click', () => {
+													if (currentIndex < totalImages - 1) {
+														currentIndex++;
+														updateCarousel();
+													}
+												});
+
+												document.getElementById('prevButton').addEventListener('click', () => {
+													if (currentIndex > 0) {
+														currentIndex--;
+														updateCarousel();
+													}
+												});
+
+												function updateCarousel() {
+													images.forEach((img, index) => {
+														img.style.display = index === currentIndex ? 'block' : 'none';
+													});
+												}
+
+												updateCarousel();
+											});
+										</script>
 									</li>
+									<!--madera---------------------------------->
 									<li class="text-center">
-										<span><img src="images/graLaser.svg" class="img-responsive" alt=""></span>
+										<span><img src="images/hoarding.svg" class="img-responsive" alt=""></span>
 										<hr>
-										<h4>VALLAS EN MADERA</h4>
-										<small>Grabado láser detalles finos y personalizados.</small>
+										<h4>VALLAS DE MADERA</h4>
+										<small>Impresión digital gran formato alta calidad.</small>
 										<br>
 										<hr>
-										<p><a href="#" class="time">Más <i class="icon-arrow-right"></i></a></p>
+										<p><button class="time" id="miBoton13">Más <i
+													class="icon-arrow-right"></i></button>
+										</p>
+										<script>
+											document.getElementById('miBoton13').addEventListener('click', () => {
+												Swal.fire({
+													html: `
+														<h2 class="title-sweet">VALLAS DE MADERA</h2>
+														<hr class="hr-sweet">
+														<p class="text-black">Las vallas de madera son estructuras versátiles y estéticamente agradables, ideales para delimitar espacios y aportar un toque natural a su entorno. Se fabrican con maderas tratadas para garantizar durabilidad y resistencia a las condiciones climáticas. Su diseño puede adaptarse a diferentes estilos, desde rústicos hasta modernos, y son perfectas para uso residencial, comercial o en eventos.</p>
+														<hr class="hr-sweet">
+														<div class="content">
+															<div class="lists">
+																<div>
+																	<h4>Ficha tecnica de materiales</h4>
+																	<ul>
+																		<li>Impresión digital en vinilo laminado</li>
+																		<li>Estructura en madera redondeada o cuadrada</li>
+																		<li>Grabado láser (bajo relieve)</li>
+																		<li>Pintura alto trafico</li>
+																	</ul>
+																</div>
+															</div>
+															<div class="carousel">
+																<button class="prev" id="prevButton">&#10094;</button>
+																<div class="carousel-inner">
+																	<img src="images/gf1.jpg" alt="Imagen 1">
+																	<img src="images/gf2.jpg" alt="Imagen 2">
+																	<img src="images/gf3.jpg" alt="Imagen 3">
+																	<img src="images/gf4.jpg" alt="Imagen 4">
+																</div>
+																<button class="next" id="nextButton">&#10095;</button>
+															</div>
+														</div>
+														<hr class="hr-sweet">
+													`,
+													confirmButtonText: 'Cerrar',
+													customClass: {
+														confirmButton: 'custom-button'
+													},
+													width: '80%',
+													padding: '1rem',
+													maxWidth: '95vw'
+												});
+
+												// Lógica para el carrusel manual
+												let currentIndex = 0;
+												const images = document.querySelectorAll('.carousel-inner img');
+												const totalImages = images.length;
+
+												document.getElementById('nextButton').addEventListener('click', () => {
+													if (currentIndex < totalImages - 1) {
+														currentIndex++;
+														updateCarousel();
+													}
+												});
+
+												document.getElementById('prevButton').addEventListener('click', () => {
+													if (currentIndex > 0) {
+														currentIndex--;
+														updateCarousel();
+													}
+												});
+
+												function updateCarousel() {
+													images.forEach((img, index) => {
+														img.style.display = index === currentIndex ? 'block' : 'none';
+													});
+												}
+
+												updateCarousel();
+											});
+										</script>
 									</li>
+									<!--vacio----------------------------------->
 									<li class="text-center">
 									</li>
+									<!--vacio----------------------------------->
 									<li class="text-center">
 									</li>
+									<!--vacio----------------------------------->
+									<li class="text-center">
+									</li>
+									<!----------------------------------->
 								</ul>
 							</div>
 
 							<div class="fh5co-tab-content tab-content" data-tab-content="3">
 								<ul class="class-schedule">
+									<!--metalicas tubulares--------------------->
 									<li class="text-center">
-										<span><img src="images/exercise.svg" class="img-responsive" alt=""></span>
+										<span><img src="images/hoarding.svg" class="img-responsive" alt=""></span>
 										<hr>
-										<h4>TIPO BASTIDOR</h4>
-										<small>Amplio, detalles, calidad, personalización, versatilidad.</small>
+										<h4>METALICAS TUBULARES</h4>
+										<small>Impresión digital gran formato alta calidad.</small>
 										<br>
 										<hr>
-										<p><a href="#" class="time">Más <i class="icon-arrow-right"></i></a></p>
+										<p><button class="time" id="miBoton20">Más <i
+													class="icon-arrow-right"></i></button>
+										</p>
+										<script>
+											document.getElementById('miBoton20').addEventListener('click', () => {
+												Swal.fire({
+													html: `
+														<h2 class="title-sweet">VALLAS METÁLICAS TUBULARES</h2>
+														<hr class="hr-sweet">
+														<p class="text-black">Las vallas metálicas tubulares son estructuras robustas y versátiles que permiten alcanzar alturas de hasta 35 metros. Con módulos publicitarios de hasta 12 x 4 metros, son ideales para maximizar la visibilidad y el impacto de la comunicación visual en espacios abiertos.</p>
+														<hr class="hr-sweet">
+														<div class="content">
+															<div class="lists">
+																<div>
+																	<h4>Tipos de <br>Vallas</h4>
+																	<ul>
+																		<li>Tubulares a 1 cara</li>
+																		<li>Doble cara en V</li>
+																		<li>Doble cara con estructura sencilla</li>
+																	</ul>
+																</div>
+																<div>
+																	<h4>Descripción</h4>
+																	<ul>
+																		<li>Impresión digital en lona (Banner)</li>
+																		<li>Iluminación con reflectores.</li>
+																		<li>Asesoria en registro de valla ante la entidad competente.</li>
+																		<li>Garantía posventa.</li>
+																	</ul>
+																</div>
+																<div>
+																	<h4>Ficha tecnica<br>de materiales</h4>
+																	<ul>
+																		<li>Estudio de suelos y estructural</li>
+																		<li>Cimentación en concreto de 3.500PSI</li>
+																		<li>Mástil en tubería petrolera en acero al carbón desde 18” hasta 30”</li>
+																		<li>Módulo publicitario en lamina galvanizada y cerchas metálicas.</li>
+																	</ul>
+																</div>
+															</div>
+															<div class="carousel">
+																<button class="prev" id="prevButton">&#10094;</button>
+																<div class="carousel-inner">
+																	<img src="images/gf1.jpg" alt="Imagen 1">
+																	<img src="images/gf2.jpg" alt="Imagen 2">
+																	<img src="images/gf3.jpg" alt="Imagen 3">
+																	<img src="images/gf4.jpg" alt="Imagen 4">
+																</div>
+																<button class="next" id="nextButton">&#10095;</button>
+															</div>
+														</div>
+														<hr class="hr-sweet">
+													`,
+													confirmButtonText: 'Cerrar',
+													customClass: {
+														confirmButton: 'custom-button'
+													},
+													width: '80%',
+													padding: '1rem',
+													maxWidth: '95vw'
+												});
+
+												// Lógica para el carrusel manual
+												let currentIndex = 0;
+												const images = document.querySelectorAll('.carousel-inner img');
+												const totalImages = images.length;
+
+												document.getElementById('nextButton').addEventListener('click', () => {
+													if (currentIndex < totalImages - 1) {
+														currentIndex++;
+														updateCarousel();
+													}
+												});
+
+												document.getElementById('prevButton').addEventListener('click', () => {
+													if (currentIndex > 0) {
+														currentIndex--;
+														updateCarousel();
+													}
+												});
+
+												function updateCarousel() {
+													images.forEach((img, index) => {
+														img.style.display = index === currentIndex ? 'block' : 'none';
+													});
+												}
+
+												updateCarousel();
+											});
+										</script>
 									</li>
 									<li class="text-center">
 										<span><img src="images/dumbbell.svg" class="img-responsive" alt=""></span>
@@ -1131,6 +1925,10 @@
 		<a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
 	</div>
 
+	<!-- Modal pop-up -->
+	<script src="js/modal-popup.js"></script>
+	<!-- Sweet Alert 2 -->
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 	<!-- jQuery -->
 	<script src="js/jquery.min.js"></script>
 	<!-- jQuery Easing -->
@@ -1150,10 +1948,7 @@
 	<script src="js/magnific-popup-options.js"></script>
 	<!-- Main -->
 	<script src="js/main.js"></script>
-	<!-- Modal pop-up -->
-	<script src="js/modal-popup.js"></script>
-	<!-- Sweet Alert 2 -->
-	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 
 
 

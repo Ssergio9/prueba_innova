@@ -1,4 +1,4 @@
-let modal = document.getElementById('miModal');
+/* let modal = document.getElementById('miModal');
 let flex = document.getElementById('flex');
 let abrir = document.getElementById('abrir');
 let cerrar = document.getElementById('close');
@@ -16,4 +16,4 @@ window.addEventListener('click', function(e){
     if(e.target == flex){
         modal.style.display = 'none';
     }
-});
+}); */

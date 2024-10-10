@@ -1,0 +1,395 @@
+<div class="fh5co-tab-content-wrap">
+    <div class="fh5co-tab-content tab-content active" data-tab-content="1">
+        <ul class="class-schedule active">
+            <!--gran formato--------------------->
+            <li class="text-center">
+                <span><img src="images/hoarding.svg" class="img-responsive" alt=""></span>
+                <hr>
+                <h4>DIGITAL GRAN FORMATO</h4>
+                <small>Impresión digital gran formato alta calidad.</small>
+                <br>
+                <hr>
+                <p><button class="time" id="miBoton1">Más <i
+                            class="icon-arrow-right"></i></button>
+                </p>
+                <script>
+                    document.getElementById('miBoton1').addEventListener('click', () => {
+                        Swal.fire({
+                            html: `
+                                <h2 class="title-sweet">IMPRESIÓN DIGITAL GRAN FORMATO</h2>
+                                <hr class="hr-sweet">
+                                <p class="text-black">La impresión en gran formato es una herramienta poderosa que permite adaptar la publicidad a grandes superficies.</p>
+                                <hr class="hr-sweet">
+                                <div class="content">
+                                    <div class="lists">
+                                        <div>
+                                            <h4>Productos Stock</h4>
+                                            <ul>
+                                                <li>Pendones</li>
+                                                <li>Vallas</li>
+                                                <li>Decoración de espacios</li>
+                                                <li>Avisos</li>
+                                            </ul>
+                                        </div>
+                                        <div>
+                                            <h4>Impresión <br> sobre</h4>
+                                            <ul>
+                                                <li>Banner: brillante - mate</li>
+                                                <li>Vinilo blanco - transparente</li>
+                                                <li>Panaflex</li>
+                                                <li>Micro-perforado</li>
+                                                <li>Lona mesh</li>
+                                                <li>Pet o backlite</li>
+                                                <li>Telas: camperink - spectra</li>
+                                                <li>Poliestireno</li>
+                                            </ul>
+                                        </div>
+                                        <div>
+                                            <h4>Calidad de impresión</h4>
+                                            <ul>
+                                                <li>Tinta UV</li>
+                                                <li>ECO Solvente</li>
+                                                <li>Tecnologia EPSON</li>
+                                                <li>Resolución 1440 DFI</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="carousel">
+                                        <button class="prev" id="prevButton">&#10094;</button>
+                                        <div class="carousel-inner">
+                                            <img src="images/gf1.jpg" alt="Imagen 1">
+                                            <img src="images/gf2.jpg" alt="Imagen 2">
+                                            <img src="images/gf3.jpg" alt="Imagen 3">
+                                            <img src="images/gf4.jpg" alt="Imagen 4">
+                                        </div>
+                                        <button class="next" id="nextButton">&#10095;</button>
+                                    </div>
+                                </div>
+                                <hr class="hr-sweet">
+                            `,
+                            confirmButtonText: 'Cerrar',
+                            customClass: {
+                                confirmButton: 'custom-button'
+                            },
+                            width: '80%',
+                            padding: '1rem',
+                            maxWidth: '95vw'
+                        });
+
+                        // Lógica para el carrusel manual
+                        let currentIndex = 0;
+                        const images = document.querySelectorAll('.carousel-inner img');
+                        const totalImages = images.length;
+
+                        document.getElementById('nextButton').addEventListener('click', () => {
+                            if (currentIndex < totalImages - 1) {
+                                currentIndex++;
+                                updateCarousel();
+                            }
+                        });
+
+                        document.getElementById('prevButton').addEventListener('click', () => {
+                            if (currentIndex > 0) {
+                                currentIndex--;
+                                updateCarousel();
+                            }
+                        });
+
+                        function updateCarousel() {
+                            images.forEach((img, index) => {
+                                img.style.display = index === currentIndex ? 'block' : 'none';
+                            });
+                        }
+
+                        updateCarousel();
+                    });
+                </script>
+            </li>
+            <!--rigidos-------------------------->
+            <li class="text-center">
+                <span><img src="images/hoarding.svg" class="img-responsive" alt=""></span>
+                <hr>
+                <h4>RIGIDOS</h4>
+                <small>Impresión digital gran formato alta calidad.</small>
+                <br>
+                <hr>
+                <p><button class="time" id="miBoton2">Más <i
+                            class="icon-arrow-right"></i></button>
+                </p>
+                <script>
+                    document.getElementById('miBoton2').addEventListener('click', () => {
+                        Swal.fire({
+                            html: `
+                                <h2 class="title-sweet">IMPRESIÓN SOBRE RÍGIDOS</h2>
+                                <hr class="hr-sweet">
+                                <p class="text-black">La impresión directa sobre materiales rígidos es un método que consiste en transferir una imagen o diseño directamente al sustrato, logrando un acabado duradero y vibrante en colores.</p>
+                                <hr class="hr-sweet">
+                                <div class="content">
+                                    <div class="lists">
+                                        <div>
+                                            <h4>Area de<br> impresión</h4>
+                                            <ul>
+                                                <li>Hasta 1.5 Mts</li>
+                                            </ul>
+                                        </div>
+                                        <div>
+                                            <h4>Impresión <br> sobre</h4>
+                                            <ul>
+                                                <li>Acrílico</li>
+                                                <li>Poliestireno</li>
+                                                <li>Madera</li>
+                                                <li>MDF</li>
+                                                <li>Cartón</li>
+                                                <li>Vidrio</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="carousel">
+                                        <button class="prev" id="prevButton">&#10094;</button>
+                                        <div class="carousel-inner">
+                                            <img src="images/gf1.jpg" alt="Imagen 1">
+                                            <img src="images/gf2.jpg" alt="Imagen 2">
+                                            <img src="images/gf3.jpg" alt="Imagen 3">
+                                            <img src="images/gf4.jpg" alt="Imagen 4">
+                                        </div>
+                                        <button class="next" id="nextButton">&#10095;</button>
+                                    </div>
+                                </div>
+                                <hr class="hr-sweet">
+                            `,
+                            confirmButtonText: 'Cerrar',
+                            customClass: {
+                                confirmButton: 'custom-button'
+                            },
+                            width: '80%',
+                            padding: '1rem',
+                            maxWidth: '95vw'
+                        });
+
+                        // Lógica para el carrusel manual
+                        let currentIndex = 0;
+                        const images = document.querySelectorAll('.carousel-inner img');
+                        const totalImages = images.length;
+
+                        document.getElementById('nextButton').addEventListener('click', () => {
+                            if (currentIndex < totalImages - 1) {
+                                currentIndex++;
+                                updateCarousel();
+                            }
+                        });
+
+                        document.getElementById('prevButton').addEventListener('click', () => {
+                            if (currentIndex > 0) {
+                                currentIndex--;
+                                updateCarousel();
+                            }
+                        });
+
+                        function updateCarousel() {
+                            images.forEach((img, index) => {
+                                img.style.display = index === currentIndex ? 'block' : 'none';
+                            });
+                        }
+
+                        updateCarousel();
+                    });
+                </script>
+            </li>
+        </ul>
+    </div>
+    <div class="fh5co-tab-content tab-content" data-tab-content="2">
+        <ul class="class-schedule">
+            <!--metalicas tubulares--------------------->
+            <li class="text-center">
+                <span><img src="images/hoarding.svg" class="img-responsive" alt=""></span>
+                <hr>
+                <h4>METALICAS TUBULARES</h4>
+                <small>Impresión digital gran formato alta calidad.</small>
+                <br>
+                <hr>
+                <p><button class="time" id="miBoton9">Más <i
+                            class="icon-arrow-right"></i></button>
+                </p>
+                <script>
+                    document.getElementById('miBoton9').addEventListener('click', () => {
+                        Swal.fire({
+                            html: `
+                                <h2 class="title-sweet">VALLAS METÁLICAS TUBULARES</h2>
+                                <hr class="hr-sweet">
+                                <p class="text-black">Las vallas metálicas tubulares son estructuras robustas y versátiles que permiten alcanzar alturas de hasta 35 metros. Con módulos publicitarios de hasta 12 x 4 metros, son ideales para maximizar la visibilidad y el impacto de la comunicación visual en espacios abiertos.</p>
+                                <hr class="hr-sweet">
+                                <div class="content">
+                                    <div class="lists">
+                                        <div>
+                                            <h4>Tipos de <br>Vallas</h4>
+                                            <ul>
+                                                <li>Tubulares a 1 cara</li>
+                                                <li>Doble cara en V</li>
+                                                <li>Doble cara con estructura sencilla</li>
+                                            </ul>
+                                        </div>
+                                        <div>
+                                            <h4>Descripción</h4>
+                                            <ul>
+                                                <li>Impresión digital en lona (Banner)</li>
+                                                <li>Iluminación con reflectores.</li>
+                                                <li>Asesoria en registro de valla ante la entidad competente.</li>
+                                                <li>Garantía posventa.</li>
+                                            </ul>
+                                        </div>
+                                        <div>
+                                            <h4>Ficha tecnica<br>de materiales</h4>
+                                            <ul>
+                                                <li>Estudio de suelos y estructural</li>
+                                                <li>Cimentación en concreto de 3.500PSI</li>
+                                                <li>Mástil en tubería petrolera en acero al carbón desde 18” hasta 30”</li>
+                                                <li>Módulo publicitario en lamina galvanizada y cerchas metálicas.</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="carousel">
+                                        <button class="prev" id="prevButton">&#10094;</button>
+                                        <div class="carousel-inner">
+                                            <img src="images/gf1.jpg" alt="Imagen 1">
+                                            <img src="images/gf2.jpg" alt="Imagen 2">
+                                            <img src="images/gf3.jpg" alt="Imagen 3">
+                                            <img src="images/gf4.jpg" alt="Imagen 4">
+                                        </div>
+                                        <button class="next" id="nextButton">&#10095;</button>
+                                    </div>
+                                </div>
+                                <hr class="hr-sweet">
+                            `,
+                            confirmButtonText: 'Cerrar',
+                            customClass: {
+                                confirmButton: 'custom-button'
+                            },
+                            width: '80%',
+                            padding: '1rem',
+                            maxWidth: '95vw'
+                        });
+
+                        // Lógica para el carrusel manual
+                        let currentIndex = 0;
+                        const images = document.querySelectorAll('.carousel-inner img');
+                        const totalImages = images.length;
+
+                        document.getElementById('nextButton').addEventListener('click', () => {
+                            if (currentIndex < totalImages - 1) {
+                                currentIndex++;
+                                updateCarousel();
+                            }
+                        });
+
+                        document.getElementById('prevButton').addEventListener('click', () => {
+                            if (currentIndex > 0) {
+                                currentIndex--;
+                                updateCarousel();
+                            }
+                        });
+
+                        function updateCarousel() {
+                            images.forEach((img, index) => {
+                                img.style.display = index === currentIndex ? 'block' : 'none';
+                            });
+                        }
+
+                        updateCarousel();
+                    });
+                </script>
+            </li>
+            <!--metalicas convencionales---------------->
+            <li class="text-center">
+                <span><img src="images/hoarding.svg" class="img-responsive" alt=""></span>
+                <hr>
+                <h4>CONVENCIONALES METALICAS</h4>
+                <small>Impresión digital gran formato alta calidad.</small>
+                <br>
+                <hr>
+                <p><button class="time" id="miBoton10">Más <i
+                            class="icon-arrow-right"></i></button>
+                </p>
+                <script>
+                    document.getElementById('miBoton10').addEventListener('click', () => {
+                        Swal.fire({
+                            html: `
+                                <h2 class="title-sweet">VALLAS CONVENCIONALES METÁLICAS</h2>
+                                <hr class="hr-sweet">
+                                <p class="text-black">Las vallas convencionales metálicas son estructuras resistentes que permiten alcanzar alturas de hasta 12 metros. Con módulos publicitarios de hasta 12 x 4 metros, son perfectas para maximizar la visibilidad y el impacto de la comunicación en diversas ubicaciones.</p>
+                                <hr class="hr-sweet">
+                                <div class="content">
+                                    <div class="lists">
+                                        <div>
+                                            <h4>Tipo de<br>valla</h4>
+                                            <ul>
+                                                <li>Modulares a 1 cara</li>
+                                                <li>Modulares a 2 caras</li>
+                                                <li>Modulares en V</li>
+                                            </ul>
+                                        </div>
+                                        <div>
+                                            <h4>Ficha técnica<br>de materiales</h4>
+                                            <ul>
+                                                <li>Cimentación en concreto de 3.500PSI</li>
+                                                <li>Parales en Tubo, cerchas en angulo de 1 1/2</li>
+                                                <li>Modulo Publicitario en bastidor metálico o lamina galvanizada con impresión digital en lona (Banner) 13 onzas</li>
+                                                <li>Asesoria en registro de valla ante la entidad competente</li>
+                                                <li>Garantía posventa</li>																		
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="carousel">
+                                        <button class="prev" id="prevButton">&#10094;</button>
+                                        <div class="carousel-inner">
+                                            <img src="images/gf1.jpg" alt="Imagen 1">
+                                            <img src="images/gf2.jpg" alt="Imagen 2">
+                                            <img src="images/gf3.jpg" alt="Imagen 3">
+                                            <img src="images/gf4.jpg" alt="Imagen 4">
+                                        </div>
+                                        <button class="next" id="nextButton">&#10095;</button>
+                                    </div>
+                                </div>
+                                <hr class="hr-sweet">
+                            `,
+                            confirmButtonText: 'Cerrar',
+                            customClass: {
+                                confirmButton: 'custom-button'
+                            },
+                            width: '80%',
+                            padding: '1rem',
+                            maxWidth: '95vw'
+                        });
+
+                        // Lógica para el carrusel manual
+                        let currentIndex = 0;
+                        const images = document.querySelectorAll('.carousel-inner img');
+                        const totalImages = images.length;
+
+                        document.getElementById('nextButton').addEventListener('click', () => {
+                            if (currentIndex < totalImages - 1) {
+                                currentIndex++;
+                                updateCarousel();
+                            }
+                        });
+
+                        document.getElementById('prevButton').addEventListener('click', () => {
+                            if (currentIndex > 0) {
+                                currentIndex--;
+                                updateCarousel();
+                            }
+                        });
+
+                        function updateCarousel() {
+                            images.forEach((img, index) => {
+                                img.style.display = index === currentIndex ? 'block' : 'none';
+                            });
+                        }
+
+                        updateCarousel();
+                    });
+                </script>
+            </li>
+        </ul>
+    </div>
+
+   
